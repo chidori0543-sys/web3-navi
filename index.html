@@ -19,6 +19,10 @@
   <link rel="canonical" href="https://chidori0543-sys.github.io/web3-navi/">
 
   <link rel="stylesheet" href="./style.css">
+  <!-- AOS - Animate on Scroll -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
@@ -39,38 +43,56 @@
   <!-- ========== Hero ========== -->
   <section class="hero">
     <div class="container">
-      <span class="hero-badge">2026年最新版</span>
-      <h1>Web3ナビ — 暗号資産の世界への道しるべ</h1>
-      <p class="subtitle">仮想通貨の始め方から取引所の選び方、最新キャンペーン情報まで——初心者にも中級者にも役立つ情報を厳選してお届けする暗号資産の総合メディアです。</p>
+      <span class="hero-badge" data-aos="fade-down">2026年最新版</span>
+      <h1 data-aos="fade-up">Web3ナビ — 暗号資産の世界への道しるべ</h1>
+      <p class="subtitle" data-aos="fade-up" data-aos-delay="100">仮想通貨の始め方から取引所の選び方、最新キャンペーン情報まで——初心者にも中級者にも役立つ情報を厳選してお届けする暗号資産の総合メディアです。</p>
+      <div class="trust-bar" data-aos="fade-up" data-aos-delay="200">
+        <div class="trust-item">
+          <span class="ti-num">12+</span>
+          <span class="ti-label">掲載サービス数</span>
+        </div>
+        <div class="trust-item">
+          <span class="ti-num">¥0</span>
+          <span class="ti-label">登録は完全無料</span>
+        </div>
+        <div class="trust-item">
+          <span class="ti-num">2026</span>
+          <span class="ti-label">最新情報を更新</span>
+        </div>
+        <div class="trust-item">
+          <span class="ti-num">5分</span>
+          <span class="ti-label">最短の口座開設</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <main class="container">
 
     <!-- ========== Ranking Widget ========== -->
-    <section class="ranking-widget animate-in">
+    <section class="ranking-widget" data-aos="fade-up">
       <h3>🏅 取引所おすすめランキング TOP5</h3>
-      <div class="rw-item">
+      <div class="rw-item" data-aos="fade-up">
         <span class="rw-rank">🥇</span>
         <span class="rw-name">MEXC</span>
-        <span class="rw-bonus">最大10,000USDT</span>
+        <span class="rw-bonus badge-hot">最大10,000USDT</span>
       </div>
-      <div class="rw-item">
+      <div class="rw-item" data-aos="fade-up" data-aos-delay="50">
         <span class="rw-rank">🥈</span>
         <span class="rw-name">Bitget</span>
-        <span class="rw-bonus">最大6,200USDT</span>
+        <span class="rw-bonus badge-hot">最大6,200USDT</span>
       </div>
-      <div class="rw-item">
+      <div class="rw-item" data-aos="fade-up" data-aos-delay="100">
         <span class="rw-rank">🥉</span>
         <span class="rw-name">Binance Japan</span>
         <span class="rw-bonus">最大3,600円</span>
       </div>
-      <div class="rw-item">
+      <div class="rw-item" data-aos="fade-up" data-aos-delay="150">
         <span class="rw-rank">4</span>
         <span class="rw-name">Coincheck</span>
         <span class="rw-bonus">2,500円分BTC</span>
       </div>
-      <div class="rw-item">
+      <div class="rw-item" data-aos="fade-up" data-aos-delay="200">
         <span class="rw-rank">5</span>
         <span class="rw-name">Hyperliquid</span>
         <span class="rw-bonus">エアドロップ進行中</span>
@@ -83,11 +105,11 @@
     <hr class="section-divider">
 
     <!-- ========== Article List ========== -->
-    <section class="animate-in">
+    <section data-aos="fade-up">
       <h2 class="text-center mb-3">📚 最新記事</h2>
 
       <div class="article-list">
-        <a href="./ranking/" class="article-list-item">
+        <a href="./ranking/" class="article-list-item" data-aos="fade-up">
           <div class="ali-icon">🏆</div>
           <div class="ali-body">
             <h3>仮想通貨取引所おすすめランキング【2026年最新】</h3>
@@ -96,7 +118,7 @@
           </div>
         </a>
 
-        <a href="./hajimekata/" class="article-list-item">
+        <a href="./hajimekata/" class="article-list-item" data-aos="fade-up" data-aos-delay="50">
           <div class="ali-icon">📖</div>
           <div class="ali-body">
             <h3>仮想通貨の始め方完全ガイド【初心者向け】</h3>
@@ -105,7 +127,7 @@
           </div>
         </a>
 
-        <a href="./mexc/" class="article-list-item">
+        <a href="./mexc/" class="article-list-item" data-aos="fade-up" data-aos-delay="100">
           <div class="ali-icon">🟢</div>
           <div class="ali-body">
             <h3>MEXC徹底レビュー｜手数料・特徴・キャンペーン</h3>
@@ -114,7 +136,7 @@
           </div>
         </a>
 
-        <a href="./bitget/" class="article-list-item">
+        <a href="./bitget/" class="article-list-item" data-aos="fade-up" data-aos-delay="150">
           <div class="ali-icon">🔵</div>
           <div class="ali-body">
             <h3>Bitget徹底レビュー｜コピートレードの魅力</h3>
@@ -123,7 +145,7 @@
           </div>
         </a>
 
-        <a href="./binance-japan/" class="article-list-item">
+        <a href="./binance-japan/" class="article-list-item" data-aos="fade-up" data-aos-delay="200">
           <div class="ali-icon">🟡</div>
           <div class="ali-body">
             <h3>Binance Japan完全ガイド</h3>
@@ -132,7 +154,7 @@
           </div>
         </a>
 
-        <a href="./coincheck/" class="article-list-item">
+        <a href="./coincheck/" class="article-list-item" data-aos="fade-up" data-aos-delay="250">
           <div class="ali-icon">💎</div>
           <div class="ali-body">
             <h3>Coincheck完全ガイド｜初心者にやさしい国内取引所</h3>
@@ -141,7 +163,7 @@
           </div>
         </a>
 
-        <a href="./hyperliquid/" class="article-list-item">
+        <a href="./hyperliquid/" class="article-list-item" data-aos="fade-up">
           <div class="ali-icon">⚡</div>
           <div class="ali-body">
             <h3>Hyperliquid使い方ガイド＆エアドロップ攻略</h3>
@@ -150,7 +172,7 @@
           </div>
         </a>
 
-        <a href="./wallet/" class="article-list-item">
+        <a href="./wallet/" class="article-list-item" data-aos="fade-up" data-aos-delay="50">
           <div class="ali-icon">🔒</div>
           <div class="ali-body">
             <h3>ハードウェアウォレット比較【Ledger vs SafePal】</h3>
@@ -159,7 +181,7 @@
           </div>
         </a>
 
-        <a href="./defi-tools/" class="article-list-item">
+        <a href="./defi-tools/" class="article-list-item" data-aos="fade-up" data-aos-delay="100">
           <div class="ali-icon">🛠</div>
           <div class="ali-body">
             <h3>DeFiツール完全まとめ【GMGN・DeBot・Wefi・edgeX】</h3>
@@ -168,7 +190,7 @@
           </div>
         </a>
 
-        <a href="./campaign/" class="article-list-item">
+        <a href="./campaign/" class="article-list-item" data-aos="fade-up" data-aos-delay="150">
           <div class="ali-icon">🎁</div>
           <div class="ali-body">
             <h3>最新キャンペーンまとめ【2026年3月】</h3>
@@ -182,7 +204,7 @@
     <hr class="section-divider">
 
     <!-- ========== CTA Box ========== -->
-    <section class="cta-box animate-in">
+    <section class="cta-box" data-aos="zoom-in">
       <h2>どの取引所を選べばいい？</h2>
       <p>手数料・使いやすさ・キャンペーンを総合比較したランキングで、あなたにぴったりの取引所が見つかります。</p>
       <a href="./ranking/" class="btn btn-primary btn-lg">おすすめランキングを見る →</a>
@@ -243,5 +265,74 @@
       });
     });
   </script>
+
+<!-- Floating CTA (mobile) -->
+<div class="floating-cta" id="floatingCta">
+  <div class="fc-text">🔥 おすすめ取引所<small>最大10,000USDTボーナス</small></div>
+  <a href="./ranking/" class="fc-btn">ランキングを見る</a>
+</div>
+
+<!-- Social Proof Popup -->
+<div class="social-proof" id="socialProof">
+  <span class="sp-icon">✅</span>
+  <div>
+    <div class="sp-text" id="spText"></div>
+    <div class="sp-time" id="spTime"></div>
+  </div>
+</div>
+
+<script>
+// Floating CTA - show after scroll
+const fcta = document.getElementById('floatingCta');
+if (fcta) {
+  window.addEventListener('scroll', () => {
+    fcta.classList.toggle('visible', window.scrollY > 600);
+  });
+}
+
+// Social proof notifications
+const proofData = [
+  { text: '東京都のユーザーが<strong>MEXC</strong>に登録しました', time: '2分前' },
+  { text: '大阪府のユーザーが<strong>Bitget</strong>で取引を開始', time: '5分前' },
+  { text: '福岡県のユーザーが<strong>Coincheck</strong>に登録しました', time: '8分前' },
+  { text: '北海道のユーザーが<strong>Binance Japan</strong>を開設', time: '12分前' },
+  { text: '神奈川県のユーザーが<strong>Hyperliquid</strong>を利用開始', time: '15分前' },
+  { text: '愛知県のユーザーが<strong>Ledger</strong>を購入しました', time: '18分前' },
+  { text: '京都府のユーザーが<strong>Bitget</strong>コピートレード開始', time: '22分前' },
+];
+let proofIndex = 0;
+const spEl = document.getElementById('socialProof');
+const spText = document.getElementById('spText');
+const spTime = document.getElementById('spTime');
+
+function showProof() {
+  if (!spEl || !spText) return;
+  const d = proofData[proofIndex % proofData.length];
+  spText.innerHTML = d.text;
+  spTime.textContent = d.time;
+  spEl.classList.add('show');
+  setTimeout(() => spEl.classList.remove('show'), 4000);
+  proofIndex++;
+}
+setTimeout(showProof, 5000);
+setInterval(showProof, 15000);
+
+// Countdown timers
+document.querySelectorAll('[data-countdown]').forEach(el => {
+  const target = new Date(el.dataset.countdown).getTime();
+  setInterval(() => {
+    const now = Date.now();
+    const diff = target - now;
+    if (diff <= 0) { el.textContent = '終了'; return; }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    el.textContent = d + '日 ' + h + '時間';
+  }, 1000);
+});
+</script>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init({duration:800, once:true, offset:50});</script>
+<script>lucide.createIcons();</script>
 </body>
 </html>

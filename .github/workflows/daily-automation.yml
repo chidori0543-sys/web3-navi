@@ -1,0 +1,51 @@
+name: Daily SEO & Content Automation
+
+on:
+  schedule:
+    # 毎日朝9時(JST)に実行 = UTC 0:00
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  daily-automation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Ping Search Engines (SEO)
+        run: |
+          echo "📡 Pinging search engines..."
+          curl -s "https://www.google.com/ping?sitemap=https://chidori0543-sys.github.io/web3-navi/sitemap.xml" || true
+          curl -s "https://www.bing.com/ping?sitemap=https://chidori0543-sys.github.io/web3-navi/sitemap.xml" || true
+          echo "✅ Search engine pings complete"
+
+      - name: Update Campaign Countdowns & Last Updated Date
+        run: |
+          python3 scripts/update_dates.py
+
+      - name: Generate Daily Trending Topic
+        run: |
+          python3 scripts/generate_trending.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "🤖 Daily auto-update: $(date +%Y-%m-%d)
+
+          Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+            git push
+          fi
