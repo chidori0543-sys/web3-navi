@@ -4,6 +4,8 @@ on:
   schedule:
     # 毎日朝9時(JST)に実行 = UTC 0:00
     - cron: '0 0 * * *'
+    # 夕方18時(JST) = UTC 9:00 にSNSコンテンツ更新
+    - cron: '0 9 * * *'
   workflow_dispatch:
 
 permissions:
@@ -21,22 +23,24 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Ping Search Engines (SEO)
+      - name: Update Dates & Campaign Countdowns
+        run: python3 scripts/update_dates.py
+
+      - name: Update Sitemap lastmod
+        run: python3 scripts/update_sitemap.py
+
+      - name: Generate SNS Content
+        run: python3 scripts/generate_social.py
+
+      - name: Ping Search Engines
         run: |
-          echo "📡 Pinging search engines..."
           curl -s "https://www.google.com/ping?sitemap=https://chidori0543-sys.github.io/web3-navi/sitemap.xml" || true
           curl -s "https://www.bing.com/ping?sitemap=https://chidori0543-sys.github.io/web3-navi/sitemap.xml" || true
-          echo "✅ Search engine pings complete"
 
-      - name: Update Campaign Countdowns & Last Updated Date
-        run: |
-          python3 scripts/update_dates.py
+      - name: Submit to IndexNow
+        run: python3 scripts/submit_indexnow.py || true
 
-      - name: Generate Daily Trending Topic
-        run: |
-          python3 scripts/generate_trending.py
-
-      - name: Commit and Push Changes
+      - name: Commit and Push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
