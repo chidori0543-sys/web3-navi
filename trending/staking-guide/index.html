@@ -51,7 +51,34 @@
         "@type": "Answer",
         "text": "はい、日本ではステーキング報酬は受取時点の時価で雑所得として課税されます。年間の雑所得が20万円を超える場合は確定申告が必要です。報酬を受け取った時点と売却時点の両方で課税される可能性があるため、記録をしっかり残しておきましょう。"
       }
+    },
+    {
+      "@type": "Question",
+      "name": "ステーキングとマイニングの違いは何ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "マイニング（PoW）は高性能なコンピュータで計算問題を解いて報酬を得る方式で、大量の電力が必要です。ステーキング（PoS）は暗号資産を預け入れるだけで報酬を得られるため、専用機器や電力は不要です。環境負荷が低い点でもステーキングが注目されています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "リキッドステーキングとは何ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "リキッドステーキングは、ステーキングした資産の代わりに流動性トークン（例：stETH、rETH）を受け取れる仕組みです。通常のステーキングではロックされて動かせない資産を、DeFiで運用しながらステーキング報酬も受け取ることができます。Lido FinanceやRocket Poolが代表的です。"
+      }
     }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://chidori0543-sys.github.io/web3-navi/"},
+    {"@type": "ListItem", "position": 2, "name": "トレンド", "item": "https://chidori0543-sys.github.io/web3-navi/trending/"},
+    {"@type": "ListItem", "position": 3, "name": "ステーキングガイド", "item": "https://chidori0543-sys.github.io/web3-navi/trending/staking-guide/"}
   ]
 }
 </script>
@@ -128,9 +155,24 @@
 </table>
 <p>※APYは2026年3月時点の目安です。実際の利率はステーキング方式（フレキシブル/定期）や市場状況により変動します。</p>
 
+<h3>通貨別ステーキング比較表</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>通貨</th><th>年利（目安）</th><th>ロック期間</th><th>コンセンサス</th><th>バリデーター最低額</th><th>特徴</th></tr></thead>
+<tbody>
+<tr><td>ETH</td><td>3.0〜5.0%</td><td>引出自由（EIP-4895以降）</td><td>PoS</td><td>32 ETH（セルフ運用時）</td><td>リキッドステーキングが人気</td></tr>
+<tr><td>SOL</td><td>5.5〜8.0%</td><td>エポック終了まで（約2〜3日）</td><td>PoS + PoH</td><td>なし（デリゲート可）</td><td>高速チェーンで人気上昇中</td></tr>
+<tr><td>ADA</td><td>3.5〜5.5%</td><td>なし（デリゲート方式）</td><td>PoS（Ouroboros）</td><td>なし（デリゲート可）</td><td>ロックアップ不要が魅力</td></tr>
+<tr><td>DOT</td><td>8.0〜14.0%</td><td>28日間のアンボンディング</td><td>NPoS</td><td>120 DOT（デリゲート）</td><td>高利回りだがロック期間長め</td></tr>
+<tr><td>ATOM</td><td>7.0〜12.0%</td><td>21日間のアンボンディング</td><td>BFT PoS</td><td>なし（デリゲート可）</td><td>Cosmosエコシステムの基軸</td></tr>
+</tbody>
+</table></div>
+<p>※年利は2026年3月時点の目安です。ネイティブステーキングと取引所ステーキングで利率が異なります。</p>
+
 <div class="cta-box" data-aos="fade-up">
-<p> ステーキング対応通貨数No.1！MEXCで始めよう</p>
-<a href="../../mexc/" class="cta-btn">MEXCの詳細を見る →</a>
+<span class="cta-badge">🏆 ステーキング通貨数No.1</span>
+<p>200種類以上の暗号資産でステーキング可能！フレキシブルプランで少額から始められるMEXCがおすすめです。</p>
+<a href="https://www.mexc.com/ja-JP/acquisition/custom-sign-up?shareCode=mexc-3uhs1" target="_blank" rel="noopener" class="btn btn-primary">MEXCで無料口座開設（無料）</a>
+<small>※当サイト限定リンク｜取引手数料割引あり</small>
 </div>
 </section>
 
@@ -190,19 +232,12 @@
 </section>
 
 <section data-aos="fade-up">
-<h2>よくある質問（FAQ）</h2>
-<div class="faq-item">
-<h3>Q. ステーキングはいくらから始められますか？</h3>
-<p>取引所によって最低金額が異なります。<a href="../../mexc/">MEXC</a>や<a href="../../bitget/">Bitget</a>では数百円相当から始められるプランもあります。<a href="../../coincheck/">Coincheck</a>でも少額からステーキング可能です。まずは少額で試してみることをおすすめします。</p>
-</div>
-<div class="faq-item">
-<h3>Q. ステーキングにはどんなリスクがありますか？</h3>
-<p>主なリスクとして、ロックアップ期間中に価格が下落するリスク、バリデーターのペナルティによるスラッシング、取引所自体のハッキングリスクがあります。フレキシブル（いつでも引き出せる）プランを選ぶことでロックアップリスクを軽減できます。</p>
-</div>
-<div class="faq-item">
-<h3>Q. ステーキング報酬に税金はかかりますか？</h3>
-<p>はい、日本ではステーキング報酬は受取時点の時価で<strong>雑所得として課税</strong>されます。年間の雑所得が20万円を超える場合は確定申告が必要です。報酬を受け取った時点と売却時点の両方で課税される可能性があるため、記録をしっかり残しておきましょう。詳しくは<a href="../tax-crypto-japan/">仮想通貨の税金ガイド</a>をご覧ください。</p>
-</div>
+<h2 id="faq">よくある質問（FAQ）</h2>
+<div class="faq-item"><div class="faq-q">Q. ステーキングはいくらから始められますか？<span>+</span></div><div class="faq-a"><p>取引所によって最低金額が異なります。<a href="../../mexc/">MEXC</a>や<a href="../../bitget/">Bitget</a>では数百円相当から始められるプランもあります。<a href="../../coincheck/">Coincheck</a>でも少額からステーキング可能です。まずは少額で試してみることをおすすめします。</p></div></div>
+<div class="faq-item"><div class="faq-q">Q. ステーキングにはどんなリスクがありますか？<span>+</span></div><div class="faq-a"><p>主なリスクとして、ロックアップ期間中に価格が下落するリスク、バリデーターのペナルティによるスラッシング、取引所自体のハッキングリスクがあります。フレキシブル（いつでも引き出せる）プランを選ぶことでロックアップリスクを軽減できます。</p></div></div>
+<div class="faq-item"><div class="faq-q">Q. ステーキング報酬に税金はかかりますか？<span>+</span></div><div class="faq-a"><p>はい、日本ではステーキング報酬は受取時点の時価で<strong>雑所得として課税</strong>されます。年間の雑所得が20万円を超える場合は確定申告が必要です。報酬を受け取った時点と売却時点の両方で課税される可能性があるため、記録をしっかり残しておきましょう。詳しくは<a href="../tax-crypto-japan/">仮想通貨の税金ガイド</a>をご覧ください。</p></div></div>
+<div class="faq-item"><div class="faq-q">Q. ステーキングとマイニングの違いは何ですか？<span>+</span></div><div class="faq-a"><p>マイニング（PoW）は高性能なコンピュータで計算問題を解いて報酬を得る方式で、大量の電力が必要です。ステーキング（PoS）は暗号資産を預け入れるだけで報酬を得られるため、専用機器や電力は不要です。環境負荷が低い点でもステーキングが注目されています。</p></div></div>
+<div class="faq-item"><div class="faq-q">Q. リキッドステーキングとは何ですか？<span>+</span></div><div class="faq-a"><p>リキッドステーキングは、ステーキングした資産の代わりに流動性トークン（例：stETH、rETH）を受け取れる仕組みです。通常のステーキングではロックされて動かせない資産を、<a href="../defi-toha/">DeFi</a>で運用しながらステーキング報酬も受け取ることができます。Lido FinanceやRocket Poolが代表的なプロトコルです。</p></div></div>
 </section>
 
 <section data-aos="fade-up">
@@ -211,12 +246,10 @@
 <p>ただし、価格変動リスクやロックアップのリスクは常にあります。まずは信頼できる取引所でフレキシブルプランから少額で始め、ステーキングのメリットとリスクを体感してみましょう。</p>
 
 <div class="cta-box" data-aos="fade-up">
-<p> 仮想通貨投資の基礎を固めよう</p>
-<a href="../../hajimekata/" class="cta-btn">始め方ガイドを読む →</a>
-</div>
-<div class="cta-box" data-aos="fade-up">
-<p> 口座開設ボーナスでステーキング資金をゲット</p>
-<a href="../../campaign/" class="cta-btn">最新キャンペーンを見る →</a>
+<span class="cta-badge">🎯 ステーキング＋コピートレード</span>
+<p>ステーキングだけでなく、プロの取引を自動コピーできるBitget。複数の運用方法を一つのプラットフォームで管理できます。</p>
+<a href="https://share.bitget.com/u/NJYNNCZH" target="_blank" rel="noopener" class="btn btn-primary">Bitgetで無料口座開設（無料）</a>
+<small>※当サイト限定リンク｜取引手数料割引あり</small>
 </div>
 </section>
 </article>

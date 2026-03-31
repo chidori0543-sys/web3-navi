@@ -51,7 +51,34 @@
         "@type": "Answer",
         "text": "EtherscanのGas Tracker、ETH Gas Station、MetaMaskの内蔵見積もり機能などで事前にガス代を確認できます。これらのツールではリアルタイムのガス価格や、取引が承認されるまでの推定時間を確認できます。"
       }
+    },
+    {
+      "@type": "Question",
+      "name": "ガス代が足りないとどうなりますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ガスリミットが不足するとトランザクションは失敗（リバート）しますが、消費済みのガス代は返金されません。これを「Out of Gas」エラーと呼びます。MetaMaskなどのウォレットが自動で見積もるガスリミットは通常十分ですが、手動で下げすぎると失敗リスクが高まります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Layer2を使えばガス代はゼロになりますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Layer2でもガス代は完全にゼロにはなりません。ただし、Ethereum L1と比較して1/10〜1/100程度まで削減できます。例えばArbitrumでのトークン送金は数円〜数十円程度です。さらに、L1からL2への資金移動（ブリッジ）にもガス代がかかる点に注意が必要です。"
+      }
     }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://chidori0543-sys.github.io/web3-navi/"},
+    {"@type": "ListItem", "position": 2, "name": "トレンド", "item": "https://chidori0543-sys.github.io/web3-navi/trending/"},
+    {"@type": "ListItem", "position": 3, "name": "ガス代ガイド", "item": "https://chidori0543-sys.github.io/web3-navi/trending/gas-fee-guide/"}
   ]
 }
 </script>
@@ -137,19 +164,63 @@
 </ul>
 
 <div class="cta-box" data-aos="fade-up">
-<p> イーサリアムの基礎知識を復習したい方はこちら</p>
-<a href="../ethereum-toha/" class="cta-btn">イーサリアムとは？→</a>
+  <span class="cta-badge">💰 ガス代を気にせず取引</span>
+  <p>取引所内の売買ならガス代不要。MEXCは1,700以上の通貨ペアに対応し、手数料も業界最安水準です。</p>
+  <a href="https://www.mexc.com/ja-JP/acquisition/custom-sign-up?shareCode=mexc-3uhs1" target="_blank" rel="noopener" class="btn btn-primary">MEXCで無料口座開設（無料）</a>
+  <small>招待コード適用済み。取引手数料がさらにお得に。</small>
 </div>
 
-<h2 data-aos="fade-up">よくある質問（FAQ）</h2>
-<div data-aos="fade-up">
-<h3>Q. なぜイーサリアムのガス代は高いのですか？</h3>
-<p>イーサリアムはメインネットの処理能力に限りがあり、取引が集中するとガス代が高騰します。NFTミントやDeFiブームなどでネットワークが混雑すると、ユーザー同士がガス代を競り上げるオークション形式のため価格が上がります。<a href="../layer2-guide/">Layer2</a>を活用することで大幅に節約できます。</p>
-<h3>Q. ガス代が安い時間帯はいつですか？</h3>
-<p>一般的に、日本時間の早朝（午前4時〜8時頃）はアメリカやヨーロッパのユーザーが少ないため、ガス代が安くなる傾向があります。週末も平日に比べて安くなることが多いです。Etherscanのガストラッカーでリアルタイムの状況を確認しましょう。</p>
-<h3>Q. ガス代を事前に見積もる方法はありますか？</h3>
-<p>EtherscanのGas Tracker、Blocknative Gas Estimator、MetaMaskの内蔵見積もり機能などで事前にガス代を確認できます。これらのツールではリアルタイムのガス価格や、取引が承認されるまでの推定時間を確認できます。</p>
+<h2 data-aos="fade-up">EIP-1559以降のガス代の仕組み詳細</h2>
+<p data-aos="fade-up">2021年8月に実装された<strong>EIP-1559</strong>は、イーサリアムのガス代の仕組みを大きく変えました。この変更を理解することで、より賢くガス代を管理できます。</p>
+<h3 data-aos="fade-up">Base Fee（基本手数料）</h3>
+<p data-aos="fade-up">Base Feeはプロトコルによって自動的に決定される手数料です。前のブロックのガス使用率が50%（ターゲット）を超えると最大12.5%上昇し、50%を下回ると最大12.5%下降します。この仕組みにより、ガス代が急激に変動しにくくなりました。</p>
+<p data-aos="fade-up">重要なのは、<strong>Base Feeは全額バーン（焼却）される</strong>という点です。つまり、バリデーターには渡らず、ETHの供給量を減少させるデフレ効果があります。</p>
+<h3 data-aos="fade-up">Priority Fee（優先手数料・チップ）</h3>
+<p data-aos="fade-up">Priority Feeはバリデーターへの直接的な報酬（チップ）です。急ぎの取引ほどPriority Feeを高く設定することで、優先的にブロックに含めてもらえます。通常の取引では1〜2 Gweiで十分ですが、NFTミントなど競争が激しい場面では大幅に引き上げる必要があります。</p>
+<h3 data-aos="fade-up">Max Fee（最大手数料）</h3>
+<p data-aos="fade-up">Max Feeは「このトランザクションに支払ってもよい最大額」を設定する値です。実際に支払うのは<code>Base Fee + Priority Fee</code>で、Max Feeとの差額は返金されます。急激なガス代上昇への保険として機能します。</p>
+
+<h2 data-aos="fade-up">主要ネットワーク別ガス代 詳細比較</h2>
+<p data-aos="fade-up">各ネットワークの特徴をより詳しく比較し、用途別の最適な選択肢を見ていきましょう。</p>
+<div class="table-wrap" data-aos="fade-up">
+<table>
+<thead><tr><th>ネットワーク</th><th>ETH送金</th><th>トークンスワップ</th><th>NFTミント</th><th>セキュリティ</th><th>エコシステム規模</th></tr></thead>
+<tbody>
+<tr><td>Ethereum L1</td><td>$1〜$10+</td><td>$5〜$50+</td><td>$10〜$100+</td><td>◎（最高）</td><td>◎（最大）</td></tr>
+<tr><td>Polygon PoS</td><td>$0.001〜$0.01</td><td>$0.01〜$0.1</td><td>$0.01〜$0.1</td><td>○</td><td>○</td></tr>
+<tr><td>Arbitrum One</td><td>$0.01〜$0.1</td><td>$0.05〜$0.5</td><td>$0.1〜$1</td><td>◎（L1継承）</td><td>○</td></tr>
+<tr><td>Optimism</td><td>$0.01〜$0.1</td><td>$0.05〜$0.5</td><td>$0.1〜$1</td><td>◎（L1継承）</td><td>○</td></tr>
+<tr><td>Solana</td><td>$0.00025</td><td>$0.001〜$0.01</td><td>$0.01〜$0.1</td><td>△</td><td>○</td></tr>
+<tr><td>Base</td><td>$0.001〜$0.05</td><td>$0.01〜$0.2</td><td>$0.05〜$0.5</td><td>◎（L1継承）</td><td>△（成長中）</td></tr>
+</tbody>
+</table>
 </div>
+<p data-aos="fade-up">※2026年3月時点の概算。ネットワーク混雑により大幅に変動する場合があります。</p>
+
+<h2 data-aos="fade-up">ガス代の将来展望</h2>
+<p data-aos="fade-up">イーサリアムのガス代問題は、以下の技術進化により改善が進んでいます。</p>
+<ul data-aos="fade-up">
+<li><strong>Proto-Danksharding（EIP-4844）：</strong>2024年に実装された「Blob」トランザクションにより、Layer2のデータ投稿コストが大幅に削減されました。Layer2のガス代がさらに安くなる直接的な要因です。</li>
+<li><strong>フルDanksharding：</strong>将来的にデータシャーディングが完全実装されれば、Layer2のコストはさらに1/100以下になると期待されています。</li>
+<li><strong>Account Abstraction（AA）：</strong>ERC-4337によるスマートアカウントの普及で、ガス代をプロジェクト側が肩代わりする「ガスレス取引」が広がりつつあります。</li>
+<li><strong>他チェーンとの競争：</strong>SolanaやSuiなど高速・低コストのチェーンとの競争が、エコシステム全体のガス代低下を促進しています。</li>
+</ul>
+
+<div class="cta-box" data-aos="fade-up">
+  <span class="cta-badge">🔥 多彩なチェーンに対応</span>
+  <p>Bitgetは複数チェーンでの入出金に対応。低コストなネットワークで資金移動できます。</p>
+  <a href="https://share.bitget.com/u/NJYNNCZH" target="_blank" rel="noopener" class="btn btn-primary">Bitgetで無料口座開設（無料）</a>
+  <small>コピートレード機能付き。初心者でもプロの戦略を再現。</small>
+</div>
+
+<section data-aos="fade-up">
+<h2 id="faq">よくある質問（FAQ）</h2>
+<div class="faq-item"><div class="faq-q">Q. なぜイーサリアムのガス代は高いのですか？<span>+</span></div><div class="faq-a"><p>イーサリアムはメインネットの処理能力に限りがあり、取引が集中するとガス代が高騰します。NFTミントやDeFiブームなどでネットワークが混雑すると、ユーザー同士がガス代を競り上げるオークション形式のため価格が上がります。<a href="../layer2-guide/">Layer2</a>を活用することで大幅に節約できます。</p></div></div>
+<div class="faq-item"><div class="faq-q">Q. ガス代が安い時間帯はいつですか？<span>+</span></div><div class="faq-a"><p>一般的に、日本時間の早朝（午前4時〜8時頃）はアメリカやヨーロッパのユーザーが少ないため、ガス代が安くなる傾向があります。週末も平日に比べて安くなることが多いです。Etherscanのガストラッカーでリアルタイムの状況を確認しましょう。</p></div></div>
+<div class="faq-item"><div class="faq-q">Q. ガス代を事前に見積もる方法はありますか？<span>+</span></div><div class="faq-a"><p>EtherscanのGas Tracker、Blocknative Gas Estimator、MetaMaskの内蔵見積もり機能などで事前にガス代を確認できます。これらのツールではリアルタイムのガス価格や、取引が承認されるまでの推定時間を確認できます。</p></div></div>
+<div class="faq-item"><div class="faq-q">Q. ガス代が足りないとどうなりますか？<span>+</span></div><div class="faq-a"><p>ガスリミットが不足するとトランザクションは失敗（リバート）しますが、消費済みのガス代は返金されません。これを「Out of Gas」エラーと呼びます。MetaMaskなどのウォレットが自動で見積もるガスリミットは通常十分ですが、手動で下げすぎると失敗リスクが高まります。</p></div></div>
+<div class="faq-item"><div class="faq-q">Q. Layer2を使えばガス代はゼロになりますか？<span>+</span></div><div class="faq-a"><p>Layer2でもガス代は完全にゼロにはなりません。ただし、Ethereum L1と比較して1/10〜1/100程度まで削減できます。例えばArbitrumでのトークン送金は数円〜数十円程度です。さらに、L1からL2への資金移動（ブリッジ）にもガス代がかかる点に注意が必要です。</p></div></div>
+</section>
 
 <h2 data-aos="fade-up">まとめ</h2>
 <p data-aos="fade-up">ガス代はブロックチェーンを利用する上で避けられないコストですが、仕組みを理解し適切な対策を取れば大幅に節約できます。特にLayer2の活用と時間帯の選択は効果が大きいので、ぜひ実践してみてください。</p>

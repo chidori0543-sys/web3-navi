@@ -49,9 +49,36 @@
       "name": "無料で使えるウォレットはありますか？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "はい、MetaMask、Trust Wallet、Triaなどのソフトウェアウォレットは無料で利用できます。ブラウザ拡張機能やスマホアプリとして提供されており、すぐに始められます。ただし、大きな金額を管理する場合は有料のハードウェアウォレットの購入を強くおすすめします。"
+        "text": "はい、MetaMask、Trust Wallet、Phantomなどのソフトウェアウォレットは無料で利用できます。ブラウザ拡張機能やスマホアプリとして提供されており、すぐに始められます。ただし、大きな金額を管理する場合は有料のハードウェアウォレットの購入を強くおすすめします。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ウォレットのシードフレーズを紛失したらどうなりますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "シードフレーズを紛失すると、ウォレットへのアクセスを永久に失う可能性があります。ブロックチェーンは分散型であるため、パスワードリセットのような仕組みが存在しません。必ず紙に書き留めて金庫など安全な場所に保管し、絶対にスクリーンショットやクラウドストレージには保存しないでください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "複数のウォレットを使い分けるべきですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい、用途に応じた使い分けが推奨されます。日常的なDeFi・NFT取引にはMetaMaskやPhantomなどのホットウォレット、長期保有の資産にはLedgerやSafePalなどのハードウェアウォレットを使うと、利便性とセキュリティの両方を確保できます。"
       }
     }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://chidori0543-sys.github.io/web3-navi/"},
+    {"@type": "ListItem", "position": 2, "name": "トレンド", "item": "https://chidori0543-sys.github.io/web3-navi/trending/"},
+    {"@type": "ListItem", "position": 3, "name": "ウォレットの選び方", "item": "https://chidori0543-sys.github.io/web3-navi/trending/wallet-erabikata/"}
   ]
 }
 </script>
@@ -91,13 +118,13 @@
 <p data-aos="fade-up">主要なウォレットの特徴を比較してみましょう。</p>
 <div class="table-wrap" data-aos="fade-up">
 <table>
-<thead><tr><th>ウォレット名</th><th>種類</th><th>対応チェーン</th><th>価格</th><th>セキュリティ</th><th>初心者向け</th></tr></thead>
+<thead><tr><th>ウォレット名</th><th>タイプ</th><th>対応チェーン</th><th>セキュリティ</th><th>価格</th><th>初心者向け</th></tr></thead>
 <tbody>
-<tr><td>MetaMask</td><td>ホット（ブラウザ/モバイル）</td><td>EVM互換チェーン</td><td>無料</td><td>★★★☆☆</td><td>★★★★★</td></tr>
-<tr><td>SafePal S1</td><td>コールド（ハードウェア）</td><td>100+チェーン</td><td>約8,000円</td><td>★★★★★</td><td>★★★★☆</td></tr>
-<tr><td>Ledger Nano</td><td>コールド（ハードウェア）</td><td>5,500+通貨</td><td>約12,000円〜</td><td>★★★★★</td><td>★★★☆☆</td></tr>
-<tr><td>Tria</td><td>ホット（モバイル）</td><td>マルチチェーン</td><td>無料</td><td>★★★★☆</td><td>★★★★★</td></tr>
-<tr><td>Trust Wallet</td><td>ホット（モバイル）</td><td>70+チェーン</td><td>無料</td><td>★★★☆☆</td><td>★★★★☆</td></tr>
+<tr><td>MetaMask</td><td>ソフトウェア（ブラウザ/モバイル）</td><td>EVM互換チェーン</td><td>★★★☆☆</td><td>無料</td><td>★★★★★</td></tr>
+<tr><td>Ledger Nano</td><td>ハードウェア（USB/Bluetooth）</td><td>5,500+通貨</td><td>★★★★★</td><td>約12,000円〜</td><td>★★★☆☆</td></tr>
+<tr><td>SafePal S1</td><td>ハードウェア（エアギャップ）</td><td>100+チェーン</td><td>★★★★★</td><td>約8,000円</td><td>★★★★☆</td></tr>
+<tr><td>Phantom</td><td>ソフトウェア（ブラウザ/モバイル）</td><td>Solana / EVM / Bitcoin</td><td>★★★★☆</td><td>無料</td><td>★★★★★</td></tr>
+<tr><td>Trust Wallet</td><td>ソフトウェア（モバイル）</td><td>70+チェーン</td><td>★★★☆☆</td><td>無料</td><td>★★★★☆</td></tr>
 </tbody>
 </table>
 </div>
@@ -114,8 +141,10 @@
 <p data-aos="fade-up">100以上のブロックチェーンに対応し、価格も約8,000円とハードウェアウォレットの中ではリーズナブルです。専用のSafePalアプリと連携して使います。</p>
 
 <div class="cta-box" data-aos="fade-up">
-<p> SafePal S1でセキュアに資産を管理</p>
-<a href="https://www.safepal.com/store/s1?ref=ntu0oth" class="cta-btn" target="_blank" rel="noopener">SafePal公式サイトで購入 →</a>
+<span class="cta-badge">🛡️ エアギャップ対応</span>
+<p>SafePal S1はBluetooth・Wi-Fi・USB接続なしの完全エアギャップ方式。QRコード通信のみでハッキングリスクを最小限に抑え、100+チェーンに対応。約8,000円で手に入るコスパ最強のハードウェアウォレットです。</p>
+<a href="https://www.safepal.com/store/s1?ref=ntu0oth" target="_blank" rel="noopener" class="btn btn-primary">SafePal公式サイトで購入 →</a>
+<small>※ 当サイト経由のアフィリエイトリンクです。購入価格に変更はありません。</small>
 </div>
 
 <h3 data-aos="fade-up">Ledger Nano（レジャーナノ）</h3>
@@ -123,9 +152,15 @@
 <p data-aos="fade-up">5,500以上の通貨に対応し、Ledger Liveアプリからステーキングやスワップも可能です。Nano S PlusとNano Xの2モデルがあり、Nano XはBluetooth対応でスマホから操作できます。</p>
 
 <div class="cta-box" data-aos="fade-up">
-<p> 世界600万台の信頼 - Ledgerで安心管理</p>
-<a href="https://shop.ledger.com/?r=f80cdb813871" class="cta-btn" target="_blank" rel="noopener">Ledger公式サイトで購入 →</a>
+<span class="cta-badge">🏆 世界600万台の実績</span>
+<p>Ledgerはセキュアエレメント（SE）チップ搭載で銀行ICカード同等のセキュリティを実現。5,500+通貨に対応し、Ledger Liveアプリからステーキングやスワップも可能。長期保有の資産管理に最適です。</p>
+<a href="https://shop.ledger.com/?r=f80cdb813871" target="_blank" rel="noopener" class="btn btn-primary">Ledger公式サイトで購入 →</a>
+<small>※ 当サイト経由のアフィリエイトリンクです。購入価格に変更はありません。</small>
 </div>
+
+<h3 data-aos="fade-up">Phantom（ファントム）</h3>
+<p data-aos="fade-up">Phantomは、もともとSolanaチェーン向けに開発されたウォレットで、現在はEthereum・Polygon・Bitcoinにも対応したマルチチェーンウォレットへと進化しています。直感的で洗練されたUIが特徴で、初心者でも迷わず操作できます。</p>
+<p data-aos="fade-up">ブラウザ拡張機能（Chrome、Firefox、Edge等）とiOS/Androidアプリを提供。Solana上のDeFiやNFT取引をメインに使う方には特におすすめです。トークンスワップ機能も内蔵されており、外部DEXに移動せずにウォレット内で交換が完了します。</p>
 
 <h3 data-aos="fade-up">Tria（トリア）</h3>
 <p data-aos="fade-up">Triaは、次世代のWeb3ウォレットとして注目されています。従来のウォレットと異なり、<strong>メールアドレスやSNSアカウントで簡単にウォレットを作成</strong>できるのが最大の特徴です。シードフレーズの管理が不要なため、Web3初心者でも迷わず使い始められます。</p>
@@ -170,13 +205,43 @@
 </ul>
 
 <h2 data-aos="fade-up">よくある質問（FAQ）</h2>
-<div data-aos="fade-up">
-<h3>Q. 仮想通貨ウォレットは初心者にはどれがおすすめですか？</h3>
+<div class="faq-section" data-aos="fade-up">
+
+<div class="faq-item">
+<button class="faq-q" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='false'?'true':'false');this.nextElementSibling.style.display=this.getAttribute('aria-expanded')==='true'?'block':'none'">Q. 仮想通貨ウォレットは初心者にはどれがおすすめですか？</button>
+<div class="faq-a" style="display:none">
 <p>初心者の方には、まずMetaMask（メタマスク）がおすすめです。無料で使え、ブラウザ拡張機能として簡単にインストールできます。DeFiやNFTマーケットプレイスとの連携も豊富で、Web3の入門として最適です。少額からスタートし、資産が増えてきたら<a href="https://shop.ledger.com/?r=f80cdb813871" target="_blank" rel="noopener">ハードウェアウォレット</a>の導入を検討しましょう。</p>
-<h3>Q. ホットウォレットとコールドウォレットの違いは何ですか？</h3>
-<p>ホットウォレットはインターネットに接続された状態のウォレット（MetaMaskやスマホアプリなど）で、利便性が高い反面ハッキングリスクがあります。コールドウォレット（<a href="https://shop.ledger.com/?r=f80cdb813871" target="_blank" rel="noopener">Ledger</a>や<a href="https://www.safepal.com/store/s1?ref=ntu0oth" target="_blank" rel="noopener">SafePal</a>などのハードウェアウォレット）はオフラインで秘密鍵を管理するため、セキュリティが非常に高いです。</p>
-<h3>Q. 無料で使えるウォレットはありますか？</h3>
-<p>はい、MetaMask、Trust Wallet、<a href="https://app.tria.so/?accessCode=C77B6U2297" target="_blank" rel="noopener">Tria</a>などのソフトウェアウォレットは無料で利用できます。ブラウザ拡張機能やスマホアプリとして提供されており、すぐに始められます。ただし、大きな金額を管理する場合は有料のハードウェアウォレットの購入を強くおすすめします。</p>
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='false'?'true':'false');this.nextElementSibling.style.display=this.getAttribute('aria-expanded')==='true'?'block':'none'">Q. ホットウォレットとコールドウォレットの違いは何ですか？</button>
+<div class="faq-a" style="display:none">
+<p>ホットウォレットはインターネットに接続された状態のウォレット（MetaMaskやスマホアプリなど）で、利便性が高い反面ハッキングリスクがあります。コールドウォレット（<a href="https://shop.ledger.com/?r=f80cdb813871" target="_blank" rel="noopener">Ledger</a>や<a href="https://www.safepal.com/store/s1?ref=ntu0oth" target="_blank" rel="noopener">SafePal</a>などのハードウェアウォレット）はオフラインで秘密鍵を管理するため、セキュリティが非常に高いですが、取引時にデバイスの操作が必要です。</p>
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='false'?'true':'false');this.nextElementSibling.style.display=this.getAttribute('aria-expanded')==='true'?'block':'none'">Q. 無料で使えるウォレットはありますか？</button>
+<div class="faq-a" style="display:none">
+<p>はい、MetaMask、Trust Wallet、Phantomなどのソフトウェアウォレットは無料で利用できます。ブラウザ拡張機能やスマホアプリとして提供されており、すぐに始められます。ただし、大きな金額を管理する場合は有料のハードウェアウォレットの購入を強くおすすめします。</p>
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='false'?'true':'false');this.nextElementSibling.style.display=this.getAttribute('aria-expanded')==='true'?'block':'none'">Q. ウォレットのシードフレーズを紛失したらどうなりますか？</button>
+<div class="faq-a" style="display:none">
+<p>シードフレーズを紛失すると、ウォレットへのアクセスを永久に失う可能性があります。ブロックチェーンは分散型であるため、パスワードリセットのような仕組みが存在しません。必ず紙に書き留めて金庫など安全な場所に保管し、絶対にスクリーンショットやクラウドストレージには保存しないでください。詳しくは<a href="../seed-phrase/">シードフレーズ管理ガイド</a>をご覧ください。</p>
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-q" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='false'?'true':'false');this.nextElementSibling.style.display=this.getAttribute('aria-expanded')==='true'?'block':'none'">Q. 複数のウォレットを使い分けるべきですか？</button>
+<div class="faq-a" style="display:none">
+<p>はい、用途に応じた使い分けが推奨されます。日常的なDeFi・NFT取引にはMetaMaskやPhantomなどのホットウォレット、長期保有の資産には<a href="https://shop.ledger.com/?r=f80cdb813871" target="_blank" rel="noopener">Ledger</a>や<a href="https://www.safepal.com/store/s1?ref=ntu0oth" target="_blank" rel="noopener">SafePal</a>などのハードウェアウォレットを使うと、利便性とセキュリティの両方を確保できます。</p>
+</div>
+</div>
+
 </div>
 
 <h2 data-aos="fade-up">まとめ</h2>

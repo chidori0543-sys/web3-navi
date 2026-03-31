@@ -51,7 +51,34 @@
         "@type": "Answer",
         "text": "初心者にはUniswap（DEX）、Aave（レンディング）が信頼性が高くおすすめです。低コストで始めたい場合は、Arbitrum上のGMXやBSC上のPancakeSwapも人気です。まずは少額で操作に慣れることが大切です。"
       }
+    },
+    {
+      "@type": "Question",
+      "name": "DeFiの利回り（APY）はどのくらいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "プロトコルや戦略によって大きく異なります。ステーブルコインのレンディングで年利3〜8%、流動性提供で5〜20%程度が一般的です。極端に高い利回り（年利100%超など）はリスクも高いため注意が必要です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "DeFiで使う「ガス代」とは何ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ガス代はブロックチェーン上でトランザクションを処理するための手数料です。イーサリアムメインネットでは数百円〜数千円かかることがありますが、ArbitrumやBSCなどのLayer2チェーンを使えば数円〜数十円程度で利用できます。"
+      }
     }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://chidori0543-sys.github.io/web3-navi/"},
+    {"@type": "ListItem", "position": 2, "name": "トレンド", "item": "https://chidori0543-sys.github.io/web3-navi/trending/"},
+    {"@type": "ListItem", "position": 3, "name": "DeFiとは？", "item": "https://chidori0543-sys.github.io/web3-navi/trending/defi-toha/"}
   ]
 }
 </script>
@@ -171,8 +198,10 @@
 <p>最初は少額でスワップや流動性提供を試し、操作に慣れてから金額を増やしましょう。</p>
 
 <div class="cta-box" data-aos="fade-up">
-<p> DeFiに必要なETHを購入するなら</p>
-<a href="../../ranking/" class="cta-btn">取引所ランキングを見る →</a>
+<span class="cta-badge">🔰 初心者おすすめ</span>
+<p>DeFiに必要なETHを購入するなら、国内人気No.1のCoincheckが安心。最短即日で口座開設できます。</p>
+<a href="https://campaign.coincheck.com/invitation?code=EI6y7cY" target="_blank" rel="noopener" class="btn btn-primary">Coincheckで口座開設（無料）</a>
+<small>※当サイト限定リンク｜最短5分で登録完了</small>
 </div>
 </section>
 
@@ -189,19 +218,29 @@
 </section>
 
 <section data-aos="fade-up">
-<h2>よくある質問（FAQ）</h2>
-<div class="faq-item">
-<h3>Q. DeFiは安全ですか？</h3>
-<p>DeFiにはスマートコントラクトの脆弱性、ラグプル（詐欺）、インパーマネントロスなどのリスクがあります。監査済みの大手プロトコルを利用し、少額から始めることでリスクを軽減できます。資金を一つのプロトコルに集中させないことも重要です。</p>
-</div>
-<div class="faq-item">
-<h3>Q. DeFiはいくらから始められますか？</h3>
-<p>技術的には数百円から可能ですが、イーサリアムメインネットではガス代が高いため、実質的には数千円〜が現実的です。ArbitrumやBSCなどの<a href="../layer2-guide/">Layer2・低コストチェーン</a>を使えば、1,000円程度からでも快適に利用できます。</p>
-</div>
-<div class="faq-item">
-<h3>Q. DeFiを始めるのにおすすめのプラットフォームは？</h3>
-<p>初心者にはUniswap（DEX）、Aave（レンディング）が信頼性が高くおすすめです。低コストで始めたい場合は、Arbitrum上のGMXやBSC上のPancakeSwapも人気です。まずは少額で操作に慣れることが大切です。詳しくは<a href="../../defi-tools/">DeFiツール一覧</a>をチェックしてください。</p>
-</div>
+<h2>主要DeFiプロトコル比較表【2026年版】</h2>
+<p>代表的なDeFiプロトコルのTVL・対応チェーン・主な機能を比較します。</p>
+<div class="table-wrap"><table>
+<thead><tr><th>プロトコル</th><th>カテゴリ</th><th>対応チェーン</th><th>TVL（目安）</th><th>主な機能</th><th>特徴</th></tr></thead>
+<tbody>
+<tr><td>Uniswap</td><td>DEX</td><td>Ethereum, Arbitrum, Polygon等</td><td>$5B+</td><td>トークンスワップ・流動性提供</td><td>最大手AMM DEX</td></tr>
+<tr><td>Aave</td><td>レンディング</td><td>Ethereum, Arbitrum, Polygon等</td><td>$10B+</td><td>貸借・フラッシュローン</td><td>マルチチェーン対応</td></tr>
+<tr><td>Compound</td><td>レンディング</td><td>Ethereum</td><td>$2B+</td><td>貸借</td><td>老舗プロトコル・高い信頼性</td></tr>
+<tr><td>Lido Finance</td><td>リキッドステーキング</td><td>Ethereum</td><td>$15B+</td><td>ETHステーキング</td><td>stETHで流動性を維持</td></tr>
+<tr><td>Curve Finance</td><td>DEX</td><td>Ethereum, Arbitrum等</td><td>$2B+</td><td>ステーブルコイン交換</td><td>低スリッページが強み</td></tr>
+<tr><td>PancakeSwap</td><td>DEX</td><td>BSC, Ethereum</td><td>$2B+</td><td>スワップ・ファーミング</td><td>低手数料で初心者向け</td></tr>
+</tbody>
+</table></div>
+<p>※TVLは2026年3月時点の概算です。最新データは<a href="https://defillama.com/" target="_blank" rel="noopener">DefiLlama</a>等で確認できます。</p>
+</section>
+
+<section data-aos="fade-up">
+<h2 id="faq">よくある質問（FAQ）</h2>
+<div class="faq-item"><div class="faq-q">Q. DeFiは安全ですか？<span>+</span></div><div class="faq-a"><p>DeFiにはスマートコントラクトの脆弱性、ラグプル（詐欺）、インパーマネントロスなどのリスクがあります。監査済みの大手プロトコルを利用し、少額から始めることでリスクを軽減できます。資金を一つのプロトコルに集中させないことも重要です。</p></div></div>
+<div class="faq-item"><div class="faq-q">Q. DeFiはいくらから始められますか？<span>+</span></div><div class="faq-a"><p>技術的には数百円から可能ですが、イーサリアムメインネットではガス代が高いため、実質的には数千円〜が現実的です。ArbitrumやBSCなどの<a href="../layer2-guide/">Layer2・低コストチェーン</a>を使えば、1,000円程度からでも快適に利用できます。</p></div></div>
+<div class="faq-item"><div class="faq-q">Q. DeFiを始めるのにおすすめのプラットフォームは？<span>+</span></div><div class="faq-a"><p>初心者にはUniswap（DEX）、Aave（レンディング）が信頼性が高くおすすめです。低コストで始めたい場合は、Arbitrum上のGMXやBSC上のPancakeSwapも人気です。まずは少額で操作に慣れることが大切です。詳しくは<a href="../../defi-tools/">DeFiツール一覧</a>をチェックしてください。</p></div></div>
+<div class="faq-item"><div class="faq-q">Q. DeFiの利回り（APY）はどのくらいですか？<span>+</span></div><div class="faq-a"><p>プロトコルや戦略によって大きく異なります。ステーブルコインのレンディングで年利3〜8%、流動性提供で5〜20%程度が一般的です。極端に高い利回り（年利100%超など）はリスクも高いため、まずは大手プロトコルの安定した利回りから始めましょう。</p></div></div>
+<div class="faq-item"><div class="faq-q">Q. DeFiで使う「ガス代」とは何ですか？<span>+</span></div><div class="faq-a"><p>ガス代はブロックチェーン上でトランザクションを処理するための手数料です。イーサリアムメインネットでは数百円〜数千円かかることがありますが、<a href="../layer2-guide/">ArbitrumやBSCなどのLayer2チェーン</a>を使えば数円〜数十円程度で利用できます。</p></div></div>
 </section>
 
 <section data-aos="fade-up">
@@ -210,12 +249,10 @@
 <p>ただし、高い利回りの裏にはリスクもあります。まずは信頼できるプロトコルで少額から始め、操作に慣れてから徐々にステップアップしていきましょう。</p>
 
 <div class="cta-box" data-aos="fade-up">
-<p> 仮想通貨の基礎から学びたい方はこちら</p>
-<a href="../../hajimekata/" class="cta-btn">始め方ガイドを読む →</a>
-</div>
-<div class="cta-box" data-aos="fade-up">
-<p> お得なキャンペーンで取引所デビュー</p>
-<a href="../../campaign/" class="cta-btn">最新キャンペーンを見る →</a>
+<span class="cta-badge">🌐 DeFi向けトークン豊富</span>
+<p>DeFi関連トークンの品揃えが圧倒的！2,000種類以上の通貨を取引できるMEXCで、DeFi運用の幅を広げましょう。</p>
+<a href="https://www.mexc.com/ja-JP/acquisition/custom-sign-up?shareCode=mexc-3uhs1" target="_blank" rel="noopener" class="btn btn-primary">MEXCで無料口座開設（無料）</a>
+<small>※当サイト限定リンク｜取引手数料割引あり</small>
 </div>
 </section>
 </article>
