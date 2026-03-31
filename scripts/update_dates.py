@@ -37,6 +37,13 @@ for f in glob.glob("**/*.html", recursive=True):
     month_str = f"【{today.year}年{today.month}月最新】"
     content = re.sub(r"【\d{4}年\d{1,2}月最新】", month_str, content)
 
+    # 2b. Update <time> tags like "2026年3月更新"
+    content = re.sub(
+        r'datetime="\d{4}-\d{2}">\d{4}年\d{1,2}月更新',
+        f'datetime="{today.strftime("%Y-%m")}">{today.year}年{today.month}月更新',
+        content,
+    )
+
     # 3. Update JSON-LD dateModified
     content = re.sub(
         r'"dateModified"\s*:\s*"\d{4}-\d{2}-\d{2}"',
