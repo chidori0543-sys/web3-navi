@@ -28,11 +28,11 @@
   --yellow-subtle: rgba(210,153,34,0.1);
   --red: #f85149;
   --orange: #db6d28;
-  --mexc: #2ecc71;
-  --bitget: #00d4aa;
+  --mexc: #0043FF;
+  --bitget: #00F0FF;
   --binance: #f0b90b;
   --coincheck: #0eb6e3;
-  --hyperliquid: #818cf8;
+  --hyperliquid: #6ee7b7;
   --font-sans: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'SF Mono', 'Fira Code', monospace;
   --max-w: 1200px;
@@ -181,11 +181,11 @@ th.highlight-col{background:var(--accent-muted) !important}
 .btn-primary:hover{background:var(--accent-hover)}
 .btn-outline{background:transparent;border:1px solid var(--border);color:var(--text-secondary)}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-subtle)}
-.btn-mexc{background:var(--mexc)}.btn-mexc:hover{background:#27ae60}
-.btn-bitget{background:var(--bitget)}.btn-bitget:hover{background:#059669}
+.btn-mexc{background:var(--mexc)}.btn-mexc:hover{background:#0033cc}
+.btn-bitget{background:var(--bitget)}.btn-bitget:hover{background:#00c8dd}
 .btn-binance{background:var(--binance);color:#000}.btn-binance:hover{background:#d4a00a}
 .btn-coincheck{background:var(--coincheck)}.btn-coincheck:hover{background:#0891b2}
-.btn-hyperliquid{background:var(--hyperliquid)}.btn-hyperliquid:hover{background:#6366f1}
+.btn-hyperliquid{background:var(--hyperliquid)}.btn-hyperliquid:hover{background:#34d399}
 .btn-ledger{background:#ff6b35}.btn-ledger:hover{background:#e05520}
 .btn-safepal{background:#8b5cf6}.btn-safepal:hover{background:#7c3aed}
 .btn-tria{background:#06b6d4}.btn-tria:hover{background:#0891b2}
@@ -397,11 +397,11 @@ body > * { position: relative; z-index: 1; }
   flex-shrink: 0;
   letter-spacing: -0.02em;
 }
-.em-icon.em-mexc { background: linear-gradient(135deg, var(--mexc), #1a9a5a); }
-.em-icon.em-bitget { background: linear-gradient(135deg, var(--bitget), #0891b2); }
+.em-icon.em-mexc { background: linear-gradient(135deg, var(--mexc), #0033cc); }
+.em-icon.em-bitget { background: linear-gradient(135deg, var(--bitget), #00b8cc); }
 .em-icon.em-binance { background: linear-gradient(135deg, var(--binance), #d4a00a); color: #000; }
 .em-icon.em-coincheck { background: linear-gradient(135deg, var(--coincheck), #0284c7); }
-.em-icon.em-hyperliquid { background: linear-gradient(135deg, var(--hyperliquid), #6366f1); }
+.em-icon.em-hyperliquid { background: linear-gradient(135deg, var(--hyperliquid), #34d399); }
 .em-icon.em-ledger { background: linear-gradient(135deg, #ff6b35, #e05520); }
 .em-icon.em-safepal { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 /* Exchange logo images */
