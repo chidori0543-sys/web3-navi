@@ -406,9 +406,13 @@ body > * { position: relative; z-index: 1; }
 .em-icon.em-safepal { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
 /* Exchange logo images */
 .em-icon.has-logo {
-  background: transparent !important;
-  padding: 6px;
-  overflow: visible;
+  background: rgba(255,255,255,.06) !important;
+  border: 1px solid rgba(255,255,255,.08);
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  padding: 6px 12px;
+  overflow: hidden;
 }
 .em-icon.has-logo img {
   width: 100%;
@@ -695,20 +699,22 @@ body > * { position: relative; z-index: 1; }
 
 /* Exchange mark on sub-pages (standalone) */
 .exchange-mark[class*="exchange-mark--"] {
-  width: 56px;
-  height: 56px;
+  width: 140px;
+  height: 52px;
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
   overflow: hidden;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  padding: 8px 16px;
 }
 .exchange-mark img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: 12px;
 }
 
 @keyframes fadeInUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
