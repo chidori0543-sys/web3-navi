@@ -30,7 +30,7 @@ TOPICS = [
     {"slug": "gas-fee-guide", "title": "ガス代とは？ETHのガス代を節約する方法", "desc": "ガス代の仕組み、高い時の対処法、節約テクニックを紹介。", "kw": "ガス代,節約,ETH"},
 ]
 
-BASE_URL = "https://chidori0543-sys.github.io/web3-navi"
+BASE_URL = "https://entrynavi.github.io/web3-navi"
 
 topic = TOPICS[day_of_year % len(TOPICS)]
 slug = topic["slug"]

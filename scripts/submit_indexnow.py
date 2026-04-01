@@ -6,7 +6,7 @@
 import json
 import urllib.request
 
-BASE = "https://chidori0543-sys.github.io/web3-navi"
+BASE = "https://entrynavi.github.io/web3-navi"
 KEY = "a1b2c3d4e5f6"
 
 # 主要ページのみ（毎日全URL送信は不要）
@@ -22,7 +22,7 @@ PRIORITY_URLS = [
 ]
 
 payload = json.dumps({
-    "host": "chidori0543-sys.github.io",
+    "host": "entrynavi.github.io",
     "key": KEY,
     "keyLocation": f"{BASE}/{KEY}.txt",
     "urlList": PRIORITY_URLS,

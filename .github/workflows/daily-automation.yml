@@ -34,8 +34,8 @@ jobs:
 
       - name: Ping Search Engines
         run: |
-          curl -s "https://www.google.com/ping?sitemap=https://chidori0543-sys.github.io/web3-navi/sitemap.xml" || true
-          curl -s "https://www.bing.com/ping?sitemap=https://chidori0543-sys.github.io/web3-navi/sitemap.xml" || true
+          curl -s "https://www.google.com/ping?sitemap=https://entrynavi.github.io/web3-navi/sitemap.xml" || true
+          curl -s "https://www.bing.com/ping?sitemap=https://entrynavi.github.io/web3-navi/sitemap.xml" || true
 
       - name: Submit to IndexNow
         run: python3 scripts/submit_indexnow.py || true

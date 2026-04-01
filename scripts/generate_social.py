@@ -15,7 +15,7 @@ day_of_year = today.timetuple().tm_yday
 date_str = today.strftime("%Y-%m-%d")
 month_day = today.strftime("%m/%d")
 
-BASE = "https://chidori0543-sys.github.io/web3-navi"
+BASE = "https://entrynavi.github.io/web3-navi"
 
 # ========== 投稿テンプレートプール ==========
 # 各取引所プロモーション（アフィリエイトリンク付き）
