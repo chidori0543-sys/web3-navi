@@ -1,4 +1,6 @@
-シードフレーズスクショで保存してる人、今すぐやめた方がいい。スマホ乗っ取られたら全部持ってかれる
+シードフレーズをスクリーンショットで保存していませんか？
 
-正しい管理方法はこれ
-→ https://entrynavi.github.io/cryptogate/trending/seed-phrase/
+スマートフォンが乗っ取られた場合、資産をすべて失うリスクがあります。安全な管理方法をこちらで解説しています。
+https://entrynavi.github.io/cryptogate/trending/seed-phrase/
+
+#セキュリティ #シードフレーズ

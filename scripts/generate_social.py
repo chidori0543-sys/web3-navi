@@ -2,6 +2,7 @@
 """
 毎日実行: SNS投稿コンテンツを自動生成
 X(Twitter)/Bluesky/Threads/Pinterest用
+ですます調 + 初心者向け + 画像対応
 """
 import json
 import os
@@ -15,191 +16,239 @@ date_str = today.strftime("%Y-%m-%d")
 
 BASE = "https://entrynavi.github.io/cryptogate"
 
+# 投稿に添付する画像（imgディレクトリ内のファイル名）
+# post_bluesky.py がこの情報を使って画像を添付する
+IMAGES = {
+    "ranking": "img/pin-ranking.png",
+    "hyperliquid": "img/pin-hyperliquid.png",
+    "wallet": "img/pin-wallet.png",
+    "hajimekata": "img/pin-hajimekata.png",
+    "defi": "img/pin-defi.png",
+}
+
 # ========== 投稿テンプレート ==========
-# 人間味のある自然な文体で統一
+# ですます調 + 初心者向けのわかりやすい解説
+# 各投稿は (text, image_key or None) のタプル
 
 EXCHANGE_POSTS = [
     # --- MEXC ---
-    f"""正直MEXCの手数料やばい。メイカー0%って何？笑
+    (f"""MEXCという海外取引所をご存じですか？
 
-取扱通貨2700種超えてるから、まだ誰も知らないコインとか普通に買える。草コイン掘るなら一択かも
+取引手数料がメイカー0%で、取扱通貨は2,700種類以上あります。まだ日本では知られていない通貨も多く取り扱っていて、早めに見つけたい方にはおすすめです。
 
-→ {BASE}/mexc/
+詳しくはこちら
+{BASE}/mexc/
 
-#MEXC #仮想通貨""",
+#MEXC #仮想通貨 #取引所""", "ranking"),
 
-    f"""海外取引所どこ使えばいい？ってよく聞かれるけど、とりあえずMEXCで間違いない
+    (f"""「海外取引所ってどこを使えばいいの？」とよく聞かれます。
 
-・手数料が安い（メイカー0%）
-・通貨めちゃくちゃ多い
-・日本語対応してる
+迷ったらMEXCがおすすめです。理由はシンプルで、手数料が安い・通貨が多い・日本語に対応しているからです。
 
-→ {BASE}/mexc/""",
+始め方はこちらにまとめています
+{BASE}/mexc/
 
-    f"""MEXCの何がいいって、上場スピードが異常に早いこと。話題になったコインが即買えるのはMEXCくらい
+#MEXC""", None),
 
-手数料0%だしとりあえず口座作っといて損はない
+    (f"""MEXCの特徴のひとつが、新しい通貨の上場スピードです。話題になったコインをすぐに取引できるので、情報を追っている方には便利な取引所です。
 
-→ {BASE}/mexc/""",
+{BASE}/mexc/""", None),
 
     # --- Bitget ---
-    f"""自分でチャート分析する自信ない人、Bitgetのコピトレ使ってみ？
+    (f"""「自分でチャートを分析するのは難しい…」という方には、Bitgetのコピートレードがおすすめです。
 
-プロトレーダーの売買を自動でコピーできる。寝てる間にトレードされてるの面白い
+プロのトレーダーの売買を自動でコピーできる機能で、初心者の方でも始めやすい仕組みになっています。
 
-→ {BASE}/bitget/
+詳しくはこちら
+{BASE}/bitget/
 
-#Bitget #コピートレード""",
+#Bitget #コピートレード""", "ranking"),
 
-    f"""Bitgetのコピトレ、利用者数世界一らしい。実際使ってみると分かるけど、トレーダーの成績見て選ぶだけだから楽すぎる
+    (f"""Bitgetのコピートレードは利用者数が世界トップクラスです。
 
-→ {BASE}/bitget/""",
+成績の良いトレーダーを選ぶだけなので、取引の経験が少ない方でも始めやすいのが特徴です。
+
+{BASE}/bitget/""", None),
 
     # --- Coincheck ---
-    f"""仮想通貨始めたいけど怖い、って人はCoincheckからでいいと思う
+    (f"""仮想通貨を始めてみたいけど不安…という方には、Coincheckがおすすめです。
 
-金融庁にちゃんと登録されてるし、500円から買えるし、アプリもシンプル
+金融庁に登録された国内取引所で、500円から購入できます。アプリも使いやすく、初めての方に人気があります。
 
-紹介で1500円もらえるから実質ノーリスクで始められる
+今なら紹介で1,500円分のBTCがもらえます
+{BASE}/coincheck/
 
-→ {BASE}/coincheck/
+#Coincheck #仮想通貨デビュー""", "ranking"),
 
-#Coincheck""",
+    (f"""Coincheckの紹介キャンペーンが実施中です。口座を開設するだけで1,500円分のビットコインがもらえます。
 
-    f"""Coincheckの紹介キャンペーンまだやってた。口座作るだけで1500円分のBTCもらえる
-
-→ {BASE}/coincheck/""",
+まだ口座をお持ちでない方はこの機会にどうぞ
+{BASE}/coincheck/""", None),
 
     # --- Binance Japan ---
-    f"""Binance Japan、世界最大の取引所が日本で使えるのは普通にでかい。金融庁登録済みだから安心感ある
+    (f"""世界最大級の取引所Binanceが、日本向けにサービスを提供しています。金融庁に登録されているので、安心して利用できます。
 
-→ {BASE}/binance-japan/""",
+{BASE}/binance-japan/
+
+#BinanceJapan #仮想通貨""", None),
 
     # --- Hyperliquid ---
-    f"""Hyperliquid触ったことない人、そろそろ触っといた方がいいかも
+    (f"""Hyperliquidという分散型取引所（DEX）が注目されています。
 
-DEXなのにCEXみたいにサクサク動く。ガス代0。オーダーブック型。しかもエアドロの期待値がまだ残ってる
+CEX（中央集権型）と同じくらいスムーズに取引でき、ガス代（手数料）は0円です。過去のエアドロップで大きなリターンを得た方も多く、今から触っておく価値があります。
 
-→ {BASE}/hyperliquid/
+始め方はこちら
+{BASE}/hyperliquid/
 
-#Hyperliquid #エアドロップ""",
+#Hyperliquid #エアドロップ""", "hyperliquid"),
 
-    f"""Hyperliquidがなぜ話題かって、前回のエアドロで数百万円分もらった人がゴロゴロいるから
+    (f"""Hyperliquidが話題になっている理由は、前回のエアドロップで数百万円相当を受け取った方がいたからです。
 
-次のエアドロに向けて今のうちに触っとくのが吉
+次のエアドロップに向けて、今のうちに使い始めておくのがおすすめです。
 
-→ {BASE}/hyperliquid/""",
+{BASE}/hyperliquid/""", "hyperliquid"),
 
-    f"""DEXの未来、割とマジでHyperliquidだと思ってる。CEXと遜色ない操作感でオンチェーン取引できるのすごい
+    (f"""分散型取引所（DEX）の中でも、Hyperliquidは操作性が優れています。中央集権型と変わらない使い心地で、すべてオンチェーンで完結します。
 
-→ {BASE}/hyperliquid/""",
+{BASE}/hyperliquid/""", None),
 ]
 
-# --- Tria / Wefi / Ledger / edgeX / SafePal / GMGN / DeBot ---
 PRODUCT_POSTS = [
-    f"""Triaってウォレット知ってる？Web3のログインがメアドだけでできる。秘密鍵の管理とかいらない
+    # --- Tria ---
+    (f"""Triaというウォレットをご紹介します。メールアドレスだけでWeb3ウォレットが作れます。
 
-次世代ウォレットって感じ。招待制だからリンク置いとく
+秘密鍵やシードフレーズの管理が不要なので、Web3が初めての方でも安心です。招待制のため、以下のリンクからどうぞ。
 
-→ https://app.tria.so/?accessCode=C77B6U2297""",
+https://app.tria.so/?accessCode=C77B6U2297
 
-    f"""Web3ウォレットで一番簡単なのTriaかも。メールアドレスだけで作れて、シードフレーズとか覚えなくていい
+#Tria #Web3ウォレット""", "wallet"),
 
-→ https://app.tria.so/?accessCode=C77B6U2297
+    (f"""Web3ウォレットの中で一番簡単に使えるのはTriaかもしれません。
 
-#Tria #Web3""",
+メールアドレスだけで登録でき、シードフレーズを覚える必要がありません。初めてのウォレットにおすすめです。
 
-    f"""Wefiっていう新しいDeFiアグリゲーター試してるけど、UIがかなりいい。DeFi初心者でも使いやすい設計
+https://app.tria.so/?accessCode=C77B6U2297""", None),
 
-→ https://app.wefi.co/register?ref=m05h1tblot
+    # --- Wefi ---
+    (f"""WefiというDeFiアグリゲーターが使いやすいです。
 
-#Wefi #DeFi""",
+複数のDeFiプロトコルをまとめて操作できるので、DeFiを始めたい方にとって便利なツールです。
 
-    f"""仮想通貨をガチで持つならハードウェアウォレットは必須。取引所に置きっぱなしはリスクでかすぎる
+https://app.wefi.co/register?ref=m05h1tblot
 
-Ledgerが鉄板。オフラインで秘密鍵管理できるから安心感が段違い
+#Wefi #DeFi入門""", "defi"),
 
-→ https://shop.ledger.com/?r=f80cdb813871
+    # --- Ledger ---
+    (f"""仮想通貨を長期で保有する場合、ハードウェアウォレットの利用をおすすめします。
 
-#Ledger""",
+取引所に預けたままだと、万が一のハッキング時にリスクがあります。Ledgerならオフラインで秘密鍵を管理できるので安心です。
 
-    f"""取引所がハッキングされたニュース見るたびに思う。自分の資産は自分で守らないとダメ
+https://shop.ledger.com/?r=f80cdb813871
 
-Ledger持ってない人、まじで一個持っとき
+#Ledger #セキュリティ""", "wallet"),
 
-→ https://shop.ledger.com/?r=f80cdb813871""",
+    (f"""取引所のハッキング事件は毎年のように起きています。ご自身の資産を守るために、ハードウェアウォレットを一つ持っておくことをおすすめします。
 
-    f"""SafePalのハードウェアウォレットも安くて良い。Ledgerほど有名じゃないけど、コスパはこっちの方が上
+Ledgerは世界で最も利用されているハードウェアウォレットです。
 
-→ https://www.safepal.com/store/s1?ref=ntu0oth
+https://shop.ledger.com/?r=f80cdb813871""", None),
 
-#SafePal""",
+    # --- SafePal ---
+    (f"""Ledgerより手頃な価格のハードウェアウォレットをお探しなら、SafePalもおすすめです。コストパフォーマンスが良く、しっかりとセキュリティを確保できます。
 
-    f"""edgeXってDEX、Hyperliquidと同じオーダーブック型なんだけどUIが洗練されてる。日本語対応もしてる
+https://www.safepal.com/store/s1?ref=ntu0oth
 
-→ https://pro.edgex.exchange/ja-JP/referral/ZEROMEMO
+#SafePal #ウォレット""", "wallet"),
 
-#edgeX #DEX""",
+    # --- edgeX ---
+    (f"""edgeXという分散型取引所をご紹介します。Hyperliquidと同じオーダーブック型のDEXで、UIが洗練されていて日本語にも対応しています。
 
-    f"""GMGNでミームコインのトレンド追うの楽しい。トークンの動きがリアルタイムで見れるから、早乗りしたい人向け
+https://pro.edgex.exchange/ja-JP/referral/ZEROMEMO
 
-→ https://gmgn.ai/r/MAKAI
+#edgeX #DEX""", None),
 
-#GMGN #ミームコイン""",
+    # --- GMGN ---
+    (f"""ミームコインのトレンドをリアルタイムで追いたい方にはGMGNが便利です。
 
-    f"""DeBotのAIボット、自動でDeFi運用してくれるらしい。まだ新しいけど面白そうだから触ってみてる
+トークンの値動きや取引量をすぐに確認できるので、情報収集のツールとしておすすめです。
 
-→ https://inv.debot.ai/r/294452?lang=ja
+https://gmgn.ai/r/MAKAI
 
-#DeBot #AI""",
+#GMGN #ミームコイン""", None),
+
+    # --- DeBot ---
+    (f"""DeBotはAIを活用したDeFi自動運用ツールです。
+
+まだ新しいサービスですが、自動でDeFiの運用をしてくれるので注目しています。興味のある方はぜひ試してみてください。
+
+https://inv.debot.ai/r/294452?lang=ja
+
+#DeBot #AI運用""", None),
 ]
 
 EDUCATION_POSTS = [
-    f"""仮想通貨の税金、確定申告サボると普通に追徴課税くるからね。利益出た人はちゃんと申告しよう
+    (f"""仮想通貨で利益が出た場合、確定申告が必要です。申告しないと追徴課税の対象になることもあります。
 
-計算方法とか節税テクニックまとめた
-→ {BASE}/trending/tax-crypto-japan/""",
+計算方法や節税のポイントをこちらにまとめていますので、ぜひご確認ください。
+{BASE}/trending/tax-crypto-japan/
 
-    f"""シードフレーズスクショで保存してる人、今すぐやめた方がいい。スマホ乗っ取られたら全部持ってかれる
+#仮想通貨 #確定申告""", None),
 
-正しい管理方法はこれ
-→ {BASE}/trending/seed-phrase/""",
+    (f"""シードフレーズをスクリーンショットで保存していませんか？
 
-    f"""ETHのガス代高すぎ問題、L2使えばほぼ解決する。ArbitrumとかOptimismとか。知らないと損してるよ
+スマートフォンが乗っ取られた場合、資産をすべて失うリスクがあります。安全な管理方法をこちらで解説しています。
+{BASE}/trending/seed-phrase/
 
-→ {BASE}/trending/gas-fee-guide/""",
+#セキュリティ #シードフレーズ""", "wallet"),
 
-    f"""DeFiで年利10%超え普通にあるけど、その分リスクもある。ラグプルとかハッキングとか
+    (f"""ETHのガス代（手数料）が高いと感じている方は、L2（レイヤー2）を使ってみてください。
 
-始める前にリスクは理解しとこう
-→ {BASE}/trending/defi-toha/""",
+ArbitrumやOptimismなどを利用すると、手数料を大幅に抑えることができます。
+{BASE}/trending/gas-fee-guide/
 
-    f"""ステーキングって要は通貨預けて利息もらう感じ。銀行の100倍くらい利率いい
+#イーサリアム #L2""", None),
 
-始め方まとめてある
-→ {BASE}/trending/staking-guide/""",
+    (f"""DeFiでは年利10%以上のリターンが得られることもありますが、その分リスクもあります。
 
-    f"""ウォレットを取引所に置きっぱなしにしてる人多いけど、取引所がハッキングされたら終わりだからね
+ラグプル（詐欺）やハッキングなどの危険性を理解した上で始めることが大切です。
+{BASE}/trending/defi-toha/
 
-自分のウォレット持とう
-→ {BASE}/trending/wallet-erabikata/""",
+#DeFi #リスク管理""", "defi"),
 
-    f"""仮想通貨の始め方、難しく考えすぎてる人多い
+    (f"""ステーキングとは、仮想通貨を預けて報酬を受け取る仕組みです。銀行預金よりも高い利回りが期待できます。
 
-1. 取引所で口座作る（5分）
-2. 日本円入れる
-3. 好きなコイン買う
+初心者向けの始め方ガイドはこちらです。
+{BASE}/trending/staking-guide/
 
-これだけ
-→ {BASE}/hajimekata/""",
+#ステーキング #仮想通貨""", None),
 
-    f"""取引所選びで迷ってる人向けに比較表作った。手数料・通貨数・セキュリティ全部まとめてある
+    (f"""仮想通貨を取引所に置きっぱなしにしていませんか？
 
-→ {BASE}/ranking/""",
+取引所がハッキングされると、預けていた資産を失う可能性があります。自分専用のウォレットを持つことをおすすめします。
+{BASE}/trending/wallet-erabikata/
+
+#ウォレット #セキュリティ""", "wallet"),
+
+    (f"""仮想通貨の始め方は意外とシンプルです。
+
+1. 取引所で口座を開設する（約5分）
+2. 日本円を入金する
+3. 好きな通貨を購入する
+
+詳しい手順はこちらにまとめています。
+{BASE}/hajimekata/
+
+#仮想通貨の始め方""", "hajimekata"),
+
+    (f"""取引所選びで迷っている方のために、手数料・取扱通貨数・セキュリティなどを一覧で比較できる表を作りました。
+
+ぜひ参考にしてみてください。
+{BASE}/ranking/
+
+#取引所比較 #仮想通貨""", "ranking"),
 ]
 
 # ========== 日替わり選択 ==========
-all_posts = EXCHANGE_POSTS + PRODUCT_POSTS + EDUCATION_POSTS
 weekday = today.weekday()
 
 if weekday in (0, 2, 4):  # Mon, Wed, Fri
@@ -210,7 +259,7 @@ else:
     post_type = "education"
 
 idx = (day_of_year * 7 + weekday) % len(pool)
-post_text = pool[idx]
+post_text, image_key = pool[idx]
 
 # ========== 出力 ==========
 social_dir = Path("social")
@@ -225,6 +274,7 @@ meta = {
     "date": date_str,
     "type": post_type,
     "char_count": len(post_text),
+    "image": IMAGES.get(image_key) if image_key else None,
 }
 (social_dir / f"{date_str}.json").write_text(
     json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"
@@ -244,5 +294,7 @@ for i in range(7):
     encoding="utf-8",
 )
 
-print(f"✅ SNS content: {date_str} ({post_type})")
-print(f"📏 {len(post_text)} chars")
+print(f"SNS content: {date_str} ({post_type})")
+print(f"Length: {len(post_text)} chars")
+if image_key:
+    print(f"Image: {IMAGES[image_key]}")
