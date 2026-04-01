@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 毎日実行: SNS投稿コンテンツを自動生成
-X(Twitter)・Instagram用の投稿テキストを social/ に出力
-API不要 — 手動投稿 or 外部ツール連携用
+X(Twitter)/Bluesky/Threads/Pinterest用
 """
 import json
 import os
@@ -13,294 +12,237 @@ JST = timezone(timedelta(hours=9))
 today = datetime.now(JST)
 day_of_year = today.timetuple().tm_yday
 date_str = today.strftime("%Y-%m-%d")
-month_day = today.strftime("%m/%d")
 
 BASE = "https://entrynavi.github.io/cryptogate"
 
-# ========== 投稿テンプレートプール ==========
-# 各取引所プロモーション（アフィリエイトリンク付き）
+# ========== 投稿テンプレート ==========
+# 人間味のある自然な文体で統一
+
 EXCHANGE_POSTS = [
-    {
-        "type": "exchange_promo",
-        "exchange": "MEXC",
-        "tweets": [
-            f"""🔥 MEXCが今アツい理由
+    # --- MEXC ---
+    f"""正直MEXCの手数料やばい。メイカー0%って何？笑
 
-✅ 取扱通貨2,700種以上（業界最多）
-✅ メイカー手数料0%
-✅ 最大200倍レバレッジ
+取扱通貨2700種超えてるから、まだ誰も知らないコインとか普通に買える。草コイン掘るなら一択かも
 
-草コイン投資なら間違いなくMEXC🚀
+→ {BASE}/mexc/
 
-▶ 口座開設はこちら（招待コード付き）
-{BASE}/mexc/
+#MEXC #仮想通貨""",
 
-#仮想通貨 #MEXC #草コイン #投資""",
-            f"""💰 仮想通貨の取引手数料、気にしてる？
+    f"""海外取引所どこ使えばいい？ってよく聞かれるけど、とりあえずMEXCで間違いない
 
-MEXCならメイカー手数料が0%🎉
-2,700種以上の通貨を最安で取引できる
+・手数料が安い（メイカー0%）
+・通貨めちゃくちゃ多い
+・日本語対応してる
 
-「手数料で損したくない」人にオススメ☝
+→ {BASE}/mexc/""",
 
-▶ {BASE}/mexc/
+    f"""MEXCの何がいいって、上場スピードが異常に早いこと。話題になったコインが即買えるのはMEXCくらい
 
-#MEXC #手数料無料 #仮想通貨取引所""",
-            f"""🌏 海外取引所デビューするならMEXC
+手数料0%だしとりあえず口座作っといて損はない
 
-• 日本語完全対応
-• 本人確認なしで即取引OK
-• 取扱通貨数No.1
+→ {BASE}/mexc/""",
 
-初心者でも5分で始められます⏰
+    # --- Bitget ---
+    f"""自分でチャート分析する自信ない人、Bitgetのコピトレ使ってみ？
 
-▶ {BASE}/mexc/
+プロトレーダーの売買を自動でコピーできる。寝てる間にトレードされてるの面白い
 
-#仮想通貨初心者 #MEXC #海外取引所""",
-        ],
-    },
-    {
-        "type": "exchange_promo",
-        "exchange": "Bitget",
-        "tweets": [
-            f"""🤖 コピートレードで稼ぐ時代
+→ {BASE}/bitget/
 
-Bitgetなら
-✅ プロトレーダーの取引を自動コピー
-✅ コピトレ利用者数 世界No.1
-✅ 初心者でもプロと同じ結果
+#Bitget #コピートレード""",
 
-「自分で分析する自信がない」人こそBitget💪
+    f"""Bitgetのコピトレ、利用者数世界一らしい。実際使ってみると分かるけど、トレーダーの成績見て選ぶだけだから楽すぎる
 
-▶ {BASE}/bitget/
+→ {BASE}/bitget/""",
 
-#Bitget #コピートレード #仮想通貨""",
-            f"""⚡ Bitgetのコピトレが凄すぎる
+    # --- Coincheck ---
+    f"""仮想通貨始めたいけど怖い、って人はCoincheckからでいいと思う
 
-• 10万人以上のトレーダーから選べる
-• 自動で24時間取引
-• 利益が出たら手数料を払うだけ
+金融庁にちゃんと登録されてるし、500円から買えるし、アプリもシンプル
 
-寝てる間にも資産が増える💤💰
+紹介で1500円もらえるから実質ノーリスクで始められる
 
-▶ {BASE}/bitget/
+→ {BASE}/coincheck/
 
-#Bitget #自動売買 #不労所得""",
-        ],
-    },
-    {
-        "type": "exchange_promo",
-        "exchange": "Coincheck",
-        "tweets": [
-            f"""🇯🇵 仮想通貨デビューならCoincheck
+#Coincheck""",
 
-✅ 金融庁登録済み（安心）
-✅ 500円から購入OK
-✅ アプリDL数No.1
+    f"""Coincheckの紹介キャンペーンまだやってた。口座作るだけで1500円分のBTCもらえる
 
-🎁 今なら紹介キャンペーンで1,500円もらえる！
+→ {BASE}/coincheck/""",
 
-▶ {BASE}/coincheck/
+    # --- Binance Japan ---
+    f"""Binance Japan、世界最大の取引所が日本で使えるのは普通にでかい。金融庁登録済みだから安心感ある
 
-#Coincheck #仮想通貨デビュー #初心者""",
-            f"""🎁 Coincheck紹介キャンペーン実施中！
+→ {BASE}/binance-japan/""",
 
-口座開設するだけで1,500円分のBTCがもらえる🎉
+    # --- Hyperliquid ---
+    f"""Hyperliquid触ったことない人、そろそろ触っといた方がいいかも
 
-• 金融庁登録の安心取引所
-• 500円からスタートOK
-• アプリが超使いやすい
+DEXなのにCEXみたいにサクサク動く。ガス代0。オーダーブック型。しかもエアドロの期待値がまだ残ってる
 
-▶ {BASE}/coincheck/
+→ {BASE}/hyperliquid/
 
-#Coincheck #キャンペーン #ビットコイン無料""",
-        ],
-    },
-    {
-        "type": "exchange_promo",
-        "exchange": "Binance Japan",
-        "tweets": [
-            f"""🌐 世界最大の取引所が日本上陸
+#Hyperliquid #エアドロップ""",
 
-Binance Japanの魅力
-✅ 世界1億人以上が利用
-✅ 金融庁登録済み
-✅ 高いセキュリティ
+    f"""Hyperliquidがなぜ話題かって、前回のエアドロで数百万円分もらった人がゴロゴロいるから
 
-世界基準の取引環境を日本円で💴
+次のエアドロに向けて今のうちに触っとくのが吉
 
-▶ {BASE}/binance-japan/
+→ {BASE}/hyperliquid/""",
 
-#BinanceJapan #バイナンス #仮想通貨""",
-        ],
-    },
-    {
-        "type": "exchange_promo",
-        "exchange": "Hyperliquid",
-        "tweets": [
-            f"""🚀 次世代DEX「Hyperliquid」が凄い
+    f"""DEXの未来、割とマジでHyperliquidだと思ってる。CEXと遜色ない操作感でオンチェーン取引できるのすごい
 
-• オーダーブック型DEX
-• CEX並みの速度
-• ガス代ゼロ
-• エアドロ期待大
-
-DeFiトレーダーなら要チェック✅
-
-▶ {BASE}/hyperliquid/
-
-#Hyperliquid #DEX #DeFi #エアドロップ""",
-        ],
-    },
+→ {BASE}/hyperliquid/""",
 ]
 
-# 教育コンテンツ（SEO記事への誘導）
+# --- Tria / Wefi / Ledger / edgeX / SafePal / GMGN / DeBot ---
+PRODUCT_POSTS = [
+    f"""Triaってウォレット知ってる？Web3のログインがメアドだけでできる。秘密鍵の管理とかいらない
+
+次世代ウォレットって感じ。招待制だからリンク置いとく
+
+→ https://app.tria.so/?accessCode=C77B6U2297""",
+
+    f"""Web3ウォレットで一番簡単なのTriaかも。メールアドレスだけで作れて、シードフレーズとか覚えなくていい
+
+→ https://app.tria.so/?accessCode=C77B6U2297
+
+#Tria #Web3""",
+
+    f"""Wefiっていう新しいDeFiアグリゲーター試してるけど、UIがかなりいい。DeFi初心者でも使いやすい設計
+
+→ https://app.wefi.co/register?ref=m05h1tblot
+
+#Wefi #DeFi""",
+
+    f"""仮想通貨をガチで持つならハードウェアウォレットは必須。取引所に置きっぱなしはリスクでかすぎる
+
+Ledgerが鉄板。オフラインで秘密鍵管理できるから安心感が段違い
+
+→ https://shop.ledger.com/?r=f80cdb813871
+
+#Ledger""",
+
+    f"""取引所がハッキングされたニュース見るたびに思う。自分の資産は自分で守らないとダメ
+
+Ledger持ってない人、まじで一個持っとき
+
+→ https://shop.ledger.com/?r=f80cdb813871""",
+
+    f"""SafePalのハードウェアウォレットも安くて良い。Ledgerほど有名じゃないけど、コスパはこっちの方が上
+
+→ https://www.safepal.com/store/s1?ref=ntu0oth
+
+#SafePal""",
+
+    f"""edgeXってDEX、Hyperliquidと同じオーダーブック型なんだけどUIが洗練されてる。日本語対応もしてる
+
+→ https://pro.edgex.exchange/ja-JP/referral/ZEROMEMO
+
+#edgeX #DEX""",
+
+    f"""GMGNでミームコインのトレンド追うの楽しい。トークンの動きがリアルタイムで見れるから、早乗りしたい人向け
+
+→ https://gmgn.ai/r/MAKAI
+
+#GMGN #ミームコイン""",
+
+    f"""DeBotのAIボット、自動でDeFi運用してくれるらしい。まだ新しいけど面白そうだから触ってみてる
+
+→ https://inv.debot.ai/r/294452?lang=ja
+
+#DeBot #AI""",
+]
+
 EDUCATION_POSTS = [
-    f"""📚 仮想通貨の税金、ちゃんと理解してる？
+    f"""仮想通貨の税金、確定申告サボると普通に追徴課税くるからね。利益出た人はちゃんと申告しよう
 
-❌ 知らなかったでは済まされない
-✅ 確定申告のやり方
-✅ 節税テクニック
-✅ 計算ツールの使い方
+計算方法とか節税テクニックまとめた
+→ {BASE}/trending/tax-crypto-japan/""",
 
-詳しくはこちら⬇
-{BASE}/trending/tax-crypto-japan/
+    f"""シードフレーズスクショで保存してる人、今すぐやめた方がいい。スマホ乗っ取られたら全部持ってかれる
 
-#仮想通貨税金 #確定申告 #節税""",
-    f"""🔐 シードフレーズ、安全に管理できてる？
+正しい管理方法はこれ
+→ {BASE}/trending/seed-phrase/""",
 
-❌ スクショ保存はNG
-❌ クラウドに保存もNG
-✅ 正しい管理方法を解説
+    f"""ETHのガス代高すぎ問題、L2使えばほぼ解決する。ArbitrumとかOptimismとか。知らないと損してるよ
 
-資産を守るために必読⬇
-{BASE}/trending/seed-phrase/
+→ {BASE}/trending/gas-fee-guide/""",
 
-#セキュリティ #ウォレット #仮想通貨""",
-    f"""⛽ ガス代が高すぎる問題の解決法
+    f"""DeFiで年利10%超え普通にあるけど、その分リスクもある。ラグプルとかハッキングとか
 
-✅ 安い時間帯を狙う
-✅ Layer2を活用
-✅ バッチ処理でまとめる
+始める前にリスクは理解しとこう
+→ {BASE}/trending/defi-toha/""",
 
-節約テクニック全公開⬇
-{BASE}/trending/gas-fee-guide/
+    f"""ステーキングって要は通貨預けて利息もらう感じ。銀行の100倍くらい利率いい
 
-#ガス代 #ETH #節約""",
-    f"""🎯 DeFiで年利10%以上？
+始め方まとめてある
+→ {BASE}/trending/staking-guide/""",
 
-分散型金融（DeFi）の始め方を解説
+    f"""ウォレットを取引所に置きっぱなしにしてる人多いけど、取引所がハッキングされたら終わりだからね
 
-✅ 主要プロトコル紹介
-✅ リスクと注意点
-✅ おすすめの始め方
+自分のウォレット持とう
+→ {BASE}/trending/wallet-erabikata/""",
 
-⬇ 詳しくはこちら
-{BASE}/trending/defi-toha/
+    f"""仮想通貨の始め方、難しく考えすぎてる人多い
 
-#DeFi #分散型金融 #利回り""",
-    f"""💱 ステーキングで不労所得
+1. 取引所で口座作る（5分）
+2. 日本円入れる
+3. 好きなコイン買う
 
-仮想通貨を預けるだけで報酬がもらえる
+これだけ
+→ {BASE}/hajimekata/""",
 
-✅ 年利5-20%も可能
-✅ 初心者でも簡単
-✅ おすすめ通貨と取引所
+    f"""取引所選びで迷ってる人向けに比較表作った。手数料・通貨数・セキュリティ全部まとめてある
 
-⬇ 始め方ガイド
-{BASE}/trending/staking-guide/
-
-#ステーキング #不労所得 #仮想通貨""",
-    f"""📱 仮想通貨ウォレットの選び方
-
-「取引所に置きっぱなし」は危険⚠
-
-✅ ホットvsコールドの違い
-✅ 用途別おすすめ
-✅ 安全な使い方
-
-⬇ 比較ガイド
-{BASE}/trending/wallet-erabikata/
-
-#ウォレット #セキュリティ #仮想通貨""",
-    f"""🚀 仮想通貨の始め方【完全ガイド】
-
-1⃣ 取引所を選ぶ
-2⃣ 口座開設（最短5分）
-3⃣ 日本円を入金
-4⃣ 好きな通貨を購入
-
-初心者向けに全手順を解説⬇
-{BASE}/hajimekata/
-
-#仮想通貨始め方 #初心者 #投資デビュー""",
-    f"""🏆 2026年おすすめ取引所ランキング
-
-🥇 MEXC — 手数料最安・通貨数最多
-🥈 Bitget — コピトレNo.1
-🥉 Coincheck — 初心者に最適
-
-詳しい比較はこちら⬇
-{BASE}/ranking/
-
-#取引所ランキング #仮想通貨 #おすすめ""",
+→ {BASE}/ranking/""",
 ]
 
-# ========== 日替わり選択ロジック ==========
-# 1週間サイクル: 月水金=取引所プロモ、火木土日=教育コンテンツ
-weekday = today.weekday()  # 0=Mon
+# ========== 日替わり選択 ==========
+all_posts = EXCHANGE_POSTS + PRODUCT_POSTS + EDUCATION_POSTS
+weekday = today.weekday()
 
-if weekday in (0, 2, 4):  # Mon, Wed, Fri = exchange promo
-    all_exchange_tweets = []
-    for ex in EXCHANGE_POSTS:
-        for t in ex["tweets"]:
-            all_exchange_tweets.append({"exchange": ex["exchange"], "text": t})
-    idx = (day_of_year // 2) % len(all_exchange_tweets)
-    selected = all_exchange_tweets[idx]
-    post_text = selected["text"]
-    post_type = f"exchange_promo_{selected['exchange']}"
-else:  # Tue, Thu, Sat, Sun = education
-    idx = (day_of_year // 2) % len(EDUCATION_POSTS)
-    post_text = EDUCATION_POSTS[idx]
+if weekday in (0, 2, 4):  # Mon, Wed, Fri
+    pool = EXCHANGE_POSTS + PRODUCT_POSTS
+    post_type = "promo"
+else:
+    pool = EDUCATION_POSTS + PRODUCT_POSTS
     post_type = "education"
+
+idx = (day_of_year * 7 + weekday) % len(pool)
+post_text = pool[idx]
 
 # ========== 出力 ==========
 social_dir = Path("social")
 social_dir.mkdir(exist_ok=True)
 
-# 今日の投稿ファイル
 today_file = social_dir / f"{date_str}.txt"
 today_file.write_text(post_text, encoding="utf-8")
 
-# latest.txt（常に最新を上書き — 外部ツール連携用）
 (social_dir / "latest.txt").write_text(post_text, encoding="utf-8")
 
-# メタデータJSON（分析用）
 meta = {
     "date": date_str,
     "type": post_type,
     "char_count": len(post_text),
-    "has_link": BASE in post_text,
 }
-meta_file = social_dir / f"{date_str}.json"
-meta_file.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+(social_dir / f"{date_str}.json").write_text(
+    json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"
+)
 
-# 週間スケジュール生成
+# 週間スケジュール
 schedule = []
 for i in range(7):
     d = today + timedelta(days=i)
     wd = d.weekday()
     day_name = ["月", "火", "水", "木", "金", "土", "日"][wd]
-    content_type = "取引所プロモ" if wd in (0, 2, 4) else "教育コンテンツ"
-    schedule.append(f"{d.strftime('%-m/%-d')}({day_name}) → {content_type}")
+    ct = "プロモ" if wd in (0, 2, 4) else "教育/プロダクト"
+    schedule.append(f"{d.strftime('%-m/%-d')}({day_name}) {ct}")
 
-schedule_text = "\n".join(schedule)
 (social_dir / "schedule.txt").write_text(
-    f"📅 今週のSNS投稿スケジュール\n{'='*30}\n{schedule_text}\n",
+    "今週のスケジュール\n" + "\n".join(schedule) + "\n",
     encoding="utf-8",
 )
 
-print(f"✅ SNS content generated: {date_str}")
-print(f"📝 Type: {post_type}")
-print(f"📏 Length: {len(post_text)} chars")
-print(f"📁 Files: social/{date_str}.txt, social/latest.txt")
+print(f"✅ SNS content: {date_str} ({post_type})")
+print(f"📏 {len(post_text)} chars")

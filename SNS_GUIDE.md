@@ -1,138 +1,147 @@
 # CryptoGate SNS運用ガイド
 
-## 🎨 ブランドアセット（img/ に保存済み）
+## ブランドアセット（img/ に保存済み）
 
+### プロフィール・バナー
 | ファイル | サイズ | 用途 |
 |---------|--------|------|
-| `img/profile-icon.svg` | 512x512 | プロフィール画像（全SNS共通） |
-| `img/profile.svg` | 512x512 | テキスト入りプロフ（note等） |
-| `img/banner.svg` | 1500x500 | ヘッダー画像（X / Bluesky） |
-| `img/pin-template.svg` | 1000x1500 | Pinterestピン |
+| `profile-icon.png` | 512x512 | プロフィール画像（全SNS共通） |
+| `profile.png` | 512x512 | テキスト入りプロフ |
+| `banner.png` | 1500x500 | ヘッダー画像（X / Bluesky） |
 
-※ SVGをPNGに変換: ブラウザで開いてスクショ or Canvaにインポート
+### Pinterestピン画像（1000x1500）
+| ファイル | 内容 |
+|---------|------|
+| `pin-ranking.png` | 取引所ランキング |
+| `pin-hyperliquid.png` | Hyperliquid解説 |
+| `pin-wallet.png` | ウォレット比較 |
+| `pin-hajimekata.png` | 仮想通貨の始め方 |
+| `pin-defi.png` | DeFi入門 |
 
 ---
 
-## 📱 全アカウント一覧
+## 全アカウント一覧
 
-### 1. Bluesky（最優先 ★★★）
-- **表示名**: CryptoGate｜仮想通貨ガイド 🔷
+### 1. Bluesky ✅ 稼働中
+- **表示名**: CryptoGate｜仮想通貨ガイド
 - **ハンドル**: `@cryptogate-jp.bsky.social`
-- **プロフ画像**: `img/profile-icon.svg`
-- **バナー**: `img/banner.svg`
 - **自己紹介**:
   ```
-  💎 仮想通貨の入口がここにある
-  📊 取引所比較・始め方・最新情報を毎日発信
-  🏆 MEXC / Bitget / Coincheck 徹底解説
-  🔗 entrynavi.github.io/cryptogate
+  仮想通貨の取引所比較とか始め方とか書いてます
+  MEXC / Bitget / Coincheck / Hyperliquid あたりが得意
+  ブログ→ entrynavi.github.io/cryptogate
   ```
-- **自動投稿**: ✅ GitHub Actionsで毎日自動（構築済み）
-- **費用**: 完全無料
-- **セットアップ**:
-  1. https://bsky.app で登録
-  2. 設定 → アプリパスワード → 新規作成
-  3. GitHub Settings → Secrets に `BLUESKY_HANDLE` と `BLUESKY_APP_PASSWORD` 登録
+- **自動投稿**: GitHub Actionsで毎日2回
 
----
-
-### 2. X / Twitter（★★★）
+### 2. X / Twitter
 - **表示名**: CryptoGate｜仮想通貨ガイド
 - **ユーザー名**: `@cryptogate_jp`
-- **プロフ画像**: `img/profile-icon.svg`
-- **バナー**: `img/banner.svg`
 - **自己紹介**:
   ```
-  💎 仮想通貨の入口がここにある
-  📊 取引所比較ランキング毎月更新
-  🏆 MEXC | Bitget | Coincheck 完全ガイド
-  🔰 初心者→上級者まで対応
-  ⬇ 無料で始める
+  仮想通貨の取引所比較と始め方を書いてるブログ
+  手数料・セキュリティ・キャンペーンまとめ
+  MEXC|Bitget|Coincheck|Hyperliquid
+  ⬇ ブログ
   ```
-- **リンク**: `entrynavi.github.io/cryptogate`
-- **自動投稿**: ⚠️ 手動（social/latest.txt をコピペ、1日5秒）
-- **費用**: 無料
-- **Tips**: 固定ツイートにランキング記事を貼る
+- **運用**: social/latest.txt をコピペ（5秒）
 
----
-
-### 3. Threads（★★☆）
+### 3. Threads
 - **表示名**: CryptoGate｜仮想通貨ガイド
-- **ユーザー名**: `@cryptogate_jp`（Instagramと共通）
-- **プロフ画像**: `img/profile-icon.svg`
+- **ユーザー名**: `@cryptogate_jp`
 - **自己紹介**:
   ```
-  💎 仮想通貨の始め方を毎日発信
-  📊 取引所比較・手数料・キャンペーン情報
-  🔗 プロフリンクから無料ガイドへ
+  仮想通貨の始め方ブログやってます
+  取引所比較・手数料・キャンペーン情報
   ```
-- **リンク**: `entrynavi.github.io/cryptogate`
-- **自動投稿**: ⚠️ 手動（social/latest.txt をコピペ）
-- **費用**: 無料
-- **Tips**: Instagramアカウント必須。ハッシュタグ少なめ（3-5個）
+- **運用**: social/latest.txt をコピペ
 
----
-
-### 4. Pinterest（★★★ — 超おすすめ）
+### 4. Pinterest
 - **表示名**: CryptoGate｜仮想通貨ガイド
 - **ユーザー名**: `cryptogatejp`
-- **プロフ画像**: `img/profile-icon.svg`
 - **自己紹介**:
   ```
-  💎 仮想通貨の入口がここにある
-  取引所比較・始め方ガイド・手数料比較・キャンペーン情報
-  初心者でも5分で始められる完全ガイド
+  仮想通貨の取引所比較・始め方ガイド
+  手数料比較、キャンペーン、初心者向け情報を発信中
   ```
-- **ウェブサイト**: `entrynavi.github.io/cryptogate`（認証バッジ取得可）
-- **ボード構成**:
-  - 📊 仮想通貨取引所ランキング
-  - 🔰 仮想通貨の始め方
-  - 💰 キャンペーン・ボーナス情報
-  - 📚 仮想通貨の基礎知識
-  - 🔐 セキュリティ・ウォレット
-- **ピン画像**: `img/pin-template.svg` をベースにCanvaで量産
-- **自動投稿**: API無料（ビジネスアカウント + 開発者申請）
-- **費用**: 完全無料
-- **最大の利点**: ピンの寿命が長い（数ヶ月〜年単位で流入）、直リンク可
 
----
-
-### 5. note.com（★★☆ — SEO補助）
+### 5. note
 - **表示名**: CryptoGate｜仮想通貨ガイド
 - **ユーザー名**: `cryptogate`
-- **プロフ画像**: `img/profile.svg`（テキスト入り）
 - **自己紹介**:
   ```
-  仮想通貨の取引所比較・始め方を発信しています。
-  MEXC、Bitget、Coincheck、Binance Japan、Hyperliquidの
-  手数料・キャンペーン・使い方を徹底比較。
+  仮想通貨の取引所比較ブログやってます。
+  MEXC、Bitget、Coincheck、Hyperliquidとかの
+  手数料・キャンペーンを調べてまとめてます。
   ▶ メインサイト: entrynavi.github.io/cryptogate
   ```
-- **投稿頻度**: 週1（ブログ記事を転載 + note独自コンテンツ）
-- **費用**: 無料
-- **最大の利点**: noteドメインパワーが高くSEO効果あり、被リンク獲得
 
 ---
 
-## 📅 日次運用フロー（所要時間: 約10分/日）
+## Pinterest セットアップ手順
 
-| 時間 | 作業 | 自動/手動 |
-|------|------|-----------|
-| 9:00 | GitHub Actions実行（日付更新+SNSコンテンツ生成+Bluesky投稿） | ✅ 自動 |
-| 9:05 | social/latest.txt をXにコピペ投稿 | 🖐 手動（5秒） |
-| 9:06 | 同じ内容をThreadsに投稿 | 🖐 手動（5秒） |
-| 18:00 | GitHub Actions 2回目実行 | ✅ 自動 |
-| 週末 | Pinterestに新ピンを3-5枚投稿 | 🖐 手動（10分） |
-| 週末 | noteに記事1本転載 | 🖐 手動（15分） |
+### 初期設定
+1. ビジネスアカウントに切り替え（設定→アカウント管理→ビジネスアカウントに切り替え）
+2. プロフ画像に `img/profile-icon.png` を設定
+3. ウェブサイトに `entrynavi.github.io/cryptogate` を登録
+4. ウェブサイト認証する（HTMLタグ or ファイルアップロード）
+
+### ボードを5つ作成
+1. **仮想通貨取引所ランキング** — 取引所比較系ピンを投稿
+2. **仮想通貨の始め方** — 初心者向けコンテンツ
+3. **キャンペーン・ボーナス情報** — 期間限定情報
+4. **仮想通貨の基礎知識** — 教育系コンテンツ
+5. **ウォレット・セキュリティ** — Ledger/Tria/SafePal系
+
+### ピンの投稿方法
+1. 「ピンを作成」をクリック
+2. img/ のピン画像（pin-ranking.png等）をアップロード
+3. タイトル・説明文・リンク先URLを設定
+4. 適切なボードに保存
+
+### 各ピンの設定例
+
+**pin-ranking.png**
+- タイトル: 仮想通貨取引所おすすめランキング【2026年最新】
+- 説明: 手数料・通貨数・セキュリティで比較。MEXCが手数料0%で1位
+- リンク: https://entrynavi.github.io/cryptogate/ranking/
+- ボード: 仮想通貨取引所ランキング
+
+**pin-hyperliquid.png**
+- タイトル: Hyperliquidとは？次世代DEXを徹底解説
+- 説明: ガス代ゼロ、CEX並みの速度、エアドロップ期待。始め方を解説
+- リンク: https://entrynavi.github.io/cryptogate/hyperliquid/
+- ボード: 仮想通貨取引所ランキング
+
+**pin-wallet.png**
+- タイトル: 仮想通貨ウォレットおすすめ比較｜Ledger・Tria・SafePal
+- 説明: ハードウェアウォレットの選び方。取引所に置きっぱなしは危険
+- リンク: https://entrynavi.github.io/cryptogate/wallet/
+- ボード: ウォレット・セキュリティ
+
+**pin-hajimekata.png**
+- タイトル: 仮想通貨の始め方【完全ガイド】初心者でも5分
+- 説明: 口座開設から購入まで5ステップで解説。500円から始められる
+- リンク: https://entrynavi.github.io/cryptogate/hajimekata/
+- ボード: 仮想通貨の始め方
+
+**pin-defi.png**
+- タイトル: DeFiの始め方｜分散型金融で稼ぐ方法
+- 説明: ステーキング、流動性提供、エアドロップの始め方とリスク
+- リンク: https://entrynavi.github.io/cryptogate/trending/defi-toha/
+- ボード: 仮想通貨の基礎知識
+
+### 運用ペース
+- 週3-5ピン投稿（最初の1ヶ月は毎日1ピン推奨）
+- 同じ画像でもタイトル・説明文を変えて複数投稿OK
 
 ---
 
-## 📌 Pinterest運用テクニック
+## 日次運用フロー（約10分/日）
 
-1. **ビジネスアカウント**で登録（分析+API使える）
-2. **ウェブサイト認証**する（SEO効果UP）
-3. ピンには必ず**ブログ記事へのリンク**を貼る
-4. 画像は**縦長（2:3比率）**が最もエンゲージ高い
-5. タイトルに**キーワード**を入れる（Pinterest内SEO）
-6. 説明文に**ハッシュタグ**を入れる
-7. **毎週3-5ピン**を継続投稿（量が重要）
+| 作業 | 自動/手動 |
+|------|-----------|
+| Bluesky投稿 | ✅ 自動 |
+| X にコピペ投稿 | 手動（5秒） |
+| Threads にコピペ投稿 | 手動（5秒） |
+| Pinterest にピン投稿（週3-5回） | 手動（5分） |
+| note に記事転載（週1） | 手動（15分） |
