@@ -2,68 +2,68 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>CryptoGate</title>
-  <link>https://entrynavi.github.io/web3-navi/</link>
+  <link>https://entrynavi.github.io/cryptogate/</link>
   <description>仮想通貨・暗号資産の総合ガイド。取引所ランキング、始め方、最新キャンペーン情報を掲載。</description>
   <language>ja</language>
   <lastBuildDate>Tue, 31 Mar 2026 12:00:00 +0900</lastBuildDate>
-  <atom:link href="https://entrynavi.github.io/web3-navi/feed.xml" rel="self" type="application/rss+xml"/>
+  <atom:link href="https://entrynavi.github.io/cryptogate/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title>仮想通貨取引所おすすめランキング【2026年最新】</title>
-    <link>https://entrynavi.github.io/web3-navi/ranking/</link>
+    <link>https://entrynavi.github.io/cryptogate/ranking/</link>
     <description>MEXC・Bitget・Binance Japan・Coincheck・Hyperliquidを徹底比較。目的別おすすめランキング。</description>
     <pubDate>Tue, 31 Mar 2026 09:00:00 +0900</pubDate>
   </item>
   <item>
     <title>MEXC取引所の評判・登録方法を徹底解説</title>
-    <link>https://entrynavi.github.io/web3-navi/mexc/</link>
+    <link>https://entrynavi.github.io/cryptogate/mexc/</link>
     <description>MEXCの特徴、最大10,000USDTキャンペーン、口座開設手順を詳しく解説。</description>
     <pubDate>Tue, 31 Mar 2026 09:00:00 +0900</pubDate>
   </item>
   <item>
     <title>Bitgetコピートレードとは？やり方と評判を解説</title>
-    <link>https://entrynavi.github.io/web3-navi/bitget/</link>
+    <link>https://entrynavi.github.io/cryptogate/bitget/</link>
     <description>Bitgetのコピートレード機能、最大6,200USDTボーナス、登録方法を解説。</description>
     <pubDate>Tue, 31 Mar 2026 09:00:00 +0900</pubDate>
   </item>
   <item>
     <title>仮想通貨の始め方完全ガイド【初心者向け】</title>
-    <link>https://entrynavi.github.io/web3-navi/hajimekata/</link>
+    <link>https://entrynavi.github.io/cryptogate/hajimekata/</link>
     <description>仮想通貨の始め方をステップバイステップで解説。初心者でも5分で口座開設。</description>
     <pubDate>Tue, 31 Mar 2026 09:00:00 +0900</pubDate>
   </item>
   <item>
     <title>Hyperliquidの使い方・エアドロップ攻略ガイド</title>
-    <link>https://entrynavi.github.io/web3-navi/hyperliquid/</link>
+    <link>https://entrynavi.github.io/cryptogate/hyperliquid/</link>
     <description>HyperliquidのDEX取引、Season2エアドロップ参加方法を完全解説。</description>
     <pubDate>Tue, 31 Mar 2026 09:00:00 +0900</pubDate>
   </item>
   <item>
     <title>最新キャンペーンまとめ【2026年3月】</title>
-    <link>https://entrynavi.github.io/web3-navi/campaign/</link>
+    <link>https://entrynavi.github.io/cryptogate/campaign/</link>
     <description>MEXC最大10,000USDT、Bitget最大6,200USDT、Coincheck 2,500円BTC等のキャンペーン一覧。</description>
     <pubDate>Tue, 31 Mar 2026 09:00:00 +0900</pubDate>
   </item>
   <item>
     <title>ハードウェアウォレット比較｜LedgerとSafePalどっちがいい？</title>
-    <link>https://entrynavi.github.io/web3-navi/wallet/</link>
+    <link>https://entrynavi.github.io/cryptogate/wallet/</link>
     <description>Ledger・SafePal・Triaの比較。セキュリティ、対応通貨、価格を徹底比較。</description>
     <pubDate>Tue, 31 Mar 2026 09:00:00 +0900</pubDate>
   </item>
   <item>
     <title>Binance Japan（バイナンスジャパン）の特徴・口座開設方法</title>
-    <link>https://entrynavi.github.io/web3-navi/binance-japan/</link>
+    <link>https://entrynavi.github.io/cryptogate/binance-japan/</link>
     <description>Binance Japanの特徴、最大3,600円紹介特典、口座開設手順を解説。</description>
     <pubDate>Tue, 31 Mar 2026 09:00:00 +0900</pubDate>
   </item>
   <item>
     <title>Coincheck（コインチェック）の始め方｜初心者向け完全ガイド</title>
-    <link>https://entrynavi.github.io/web3-navi/coincheck/</link>
+    <link>https://entrynavi.github.io/cryptogate/coincheck/</link>
     <description>Coincheckの特徴、2,500円BTC紹介特典、口座開設手順を初心者向けに解説。</description>
     <pubDate>Tue, 31 Mar 2026 09:00:00 +0900</pubDate>
   </item>
   <item>
     <title>DeFiツールまとめ｜GMGN・DeBot・Wefi・edgeX</title>
-    <link>https://entrynavi.github.io/web3-navi/defi-tools/</link>
+    <link>https://entrynavi.github.io/cryptogate/defi-tools/</link>
     <description>注目のDeFiツール4選。ミームコイン分析、AI取引、DEXアグリゲーターを紹介。</description>
     <pubDate>Tue, 31 Mar 2026 09:00:00 +0900</pubDate>
   </item>

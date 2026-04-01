@@ -6,7 +6,7 @@
 import json
 import urllib.request
 
-BASE = "https://entrynavi.github.io/web3-navi"
+BASE = "https://entrynavi.github.io/cryptogate"
 KEY = "a1b2c3d4e5f6"
 
 # 主要ページのみ（毎日全URL送信は不要）

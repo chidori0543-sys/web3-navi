@@ -25,7 +25,7 @@
   💎 仮想通貨の入口がここにある
   📊 取引所比較・始め方・最新情報を毎日発信
   🏆 MEXC / Bitget / Coincheck 徹底解説
-  🔗 entrynavi.github.io/web3-navi
+  🔗 entrynavi.github.io/cryptogate
   ```
 - **自動投稿**: ✅ GitHub Actionsで毎日自動（構築済み）
 - **費用**: 完全無料
@@ -49,7 +49,7 @@
   🔰 初心者→上級者まで対応
   ⬇ 無料で始める
   ```
-- **リンク**: `entrynavi.github.io/web3-navi`
+- **リンク**: `entrynavi.github.io/cryptogate`
 - **自動投稿**: ⚠️ 手動（social/latest.txt をコピペ、1日5秒）
 - **費用**: 無料
 - **Tips**: 固定ツイートにランキング記事を貼る
@@ -66,7 +66,7 @@
   📊 取引所比較・手数料・キャンペーン情報
   🔗 プロフリンクから無料ガイドへ
   ```
-- **リンク**: `entrynavi.github.io/web3-navi`
+- **リンク**: `entrynavi.github.io/cryptogate`
 - **自動投稿**: ⚠️ 手動（social/latest.txt をコピペ）
 - **費用**: 無料
 - **Tips**: Instagramアカウント必須。ハッシュタグ少なめ（3-5個）
@@ -74,7 +74,7 @@
 ---
 
 ### 4. Pinterest（★★★ — 超おすすめ）
-- **表示名**: CryptoGate（クリプトゲート）
+- **表示名**: CryptoGate｜仮想通貨ガイド
 - **ユーザー名**: `cryptogatejp`
 - **プロフ画像**: `img/profile-icon.svg`
 - **自己紹介**:
@@ -83,7 +83,7 @@
   取引所比較・始め方ガイド・手数料比較・キャンペーン情報
   初心者でも5分で始められる完全ガイド
   ```
-- **ウェブサイト**: `entrynavi.github.io/web3-navi`（認証バッジ取得可）
+- **ウェブサイト**: `entrynavi.github.io/cryptogate`（認証バッジ取得可）
 - **ボード構成**:
   - 📊 仮想通貨取引所ランキング
   - 🔰 仮想通貨の始め方
@@ -106,7 +106,7 @@
   仮想通貨の取引所比較・始め方を発信しています。
   MEXC、Bitget、Coincheck、Binance Japan、Hyperliquidの
   手数料・キャンペーン・使い方を徹底比較。
-  ▶ メインサイト: entrynavi.github.io/web3-navi
+  ▶ メインサイト: entrynavi.github.io/cryptogate
   ```
 - **投稿頻度**: 週1（ブログ記事を転載 + note独自コンテンツ）
 - **費用**: 無料
